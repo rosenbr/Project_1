@@ -48,10 +48,14 @@ The User will naviagte to this page by clicking on the "sing-up/login" button th
     - A button to confirm sign-up
     - Once the user to signed-up, they will be redirected to landing page, and the left hand side bar will now say "UserName Feed" and will continue to do so throughout the session
 - The Login Page will contain:
-Two input fields to sign up, one labled "User Name" and labled "Password"
+    - Two input fields to sign up, one labled "User Name" and labled "Password"
     - A button to confirm sign-up
     - Once the user to signed-up, they will be redirected to landing page, and the left hand side bar will now say "UserName Feed" and will continue to do so throughout the session
 
+- User with Account will be able to:
+    - Customize their feed based on preselected choices they can choose from
+    - Leave, update and customizer comments
+    
 ### Login Page
 ![Log In%2FSign Up@1x](https://media.git.generalassemb.ly/user/35272/files/c6ceb180-a447-11eb-86ea-32b7ee5f6ba9)
 
