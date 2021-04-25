@@ -1,6 +1,8 @@
-const express = require("express");
+// const express = require("express");
 
-const router = express.Router();
+// const router = express.Router();
+
+// module.exports = router;
 
 const db = require("../models");
 
@@ -30,4 +32,8 @@ router.post("/", function(req, res){
     });
 });
 
+
 module.exports = router;
+
+module.exports = router;
+
