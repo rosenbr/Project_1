@@ -26,13 +26,4 @@
         Recipes: require("./Recipes"),
         // User: require("./User"),
         // Comments: require("./Comments");
-
-        Atricles: require("./Recipes"),
-        User: require("./User"),
-        Comments: require("./Comments")
-
-        Atricles: require("./Recipes"),
-        User: require("./User"),
-        Comments: require("./Comments")
-
     };
