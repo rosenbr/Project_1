@@ -11,7 +11,6 @@ const express = require("express");
 
 /* ===== Instanced Modules ===== */
 const app = express(); // the express module requires us to create an object from the express function
-
 /* ===== Configuration Variables ===== */
 const PORT = 4000;
 
