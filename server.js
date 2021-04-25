@@ -28,7 +28,7 @@ app.set("view engine", "ejs");
 // look for ?_method=TYPE change the TYPE to what you need
 
 /* =====  Controllers ===== */
-
+// 
 // CHANGE
 // app.use("/fruits", controllers.fruits);
 
@@ -48,9 +48,12 @@ app.set("view engine", "ejs");
 // .get is used or GET method request
 // .get("url location", callback function)
 // .get("/", function(request, response){})
-// app.get("/", function (request, response) {
-// 	// response object is in charge of sending stuff back to the client
-// 	// response.send("Hello Class!");
+app.get("/", function (request, response) {
+	
+	response.render("home");
+});
+
+
 
 // 	// to render an ejs file
 // 	// .render("file", data)
