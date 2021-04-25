@@ -14,7 +14,7 @@ const db = require("../models");
 
 // Comments Index Route
 // NOTE Do we need an index of comments from the User?
-router.get("/", function(req, res){
+/* router.get("/", function(req, res){
     db.Comments.find({}, function (err, allComments){
         if (err) return res.send(err);
 
@@ -78,7 +78,7 @@ router.put("/", function(req, res){
     );
 });
 
-// Delete Comments Route
+// Delete Comments Route */
 
 
 module.exports = router;

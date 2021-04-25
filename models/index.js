@@ -22,7 +22,7 @@ mongoose
     });
 
     module.exports = {
-        Atricles: require("./Recipes"),
+        Recipes: require("./Recipes"),
         User: require("./User"),
         Comments: require("./Comments")
     };

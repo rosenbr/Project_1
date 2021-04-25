@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const articleSchema = new mongoose (
+/* const recipeSchema = new mongoose (
     {
         body: {type: String, required: true}
     },
@@ -9,6 +9,6 @@ const articleSchema = new mongoose (
     }
 );
 
-const Article = mongoose.model("Article", articleSchema);
+const Recipe = mongoose.model("Recipe", recipeSchema); */
 
-module.exports = Articles;
+module.exports = Recipes;

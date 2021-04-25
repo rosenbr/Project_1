@@ -15,9 +15,9 @@ app.use("/home", express.static("/public"));
 // 
 // CHANGE///////////////////////////////////
 // app.use("/fruits", controllers.fruits);
-app.use("/articles", controllers.articles);
-app.use("/comments", controllers.comments);
-app.use("/users", controllers.users);
+// app.use("/recipes", controllers.recipes);
+// app.use("/comments", controllers.comments);
+// app.use("/users", controllers.users);
 /* =====  Routes ===== */
 
 /* 

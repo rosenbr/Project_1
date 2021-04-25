@@ -4,7 +4,7 @@ const router = express.Router();
 
 const db = require("../models");
 
-// TODO update url's in router.get when views is updated
+/* // TODO update url's in router.get when views is updated
 // New User route
 router.get("/", function(req, res){
     res.render("/");
@@ -28,6 +28,6 @@ router.post("/", function(req, res){
 
         return res.redirect("/");
     });
-});
+}); */
 
 module.exports = router;
