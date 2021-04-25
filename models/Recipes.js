@@ -9,21 +9,21 @@ const Recipes = [
 
 
 
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
-const articleSchema = new mongoose (
-    {
-        body: {type: String, required: true}
-    },
-    {
-        timmestamps: true,
-    }
-);
+// const articleSchema = new mongoose (
+//     {
+//         body: {type: String, required: true}
+//     },
+//     {
+//         timmestamps: true,
+//     }
+// );
 
-const Article = mongoose.model("Article", articleSchema);
+// const Recipe = mongoose.model("Recipe", articleSchema);
 
 
-module.exports = Articles;
+module.exports = Recipes;
 
-module.exports = Articles;
+
 

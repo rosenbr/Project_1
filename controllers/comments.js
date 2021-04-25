@@ -14,14 +14,14 @@ const db = require("../models");
 
 // Comments Index Route
 // NOTE Do we need an index of comments from the User?
-router.get("/", function(req, res){
-    db.Comments.find({}, function (err, allComments){
-        if (err) return res.send(err);
+// router.get("/", function(req, res){
+//     db.Comments.find({}, function (err, allComments){
+//         if (err) return res.send(err);
 
-        const context = {comments: allComments};
-        return res.render("/", context);
-    });
-});
+//         const context = {comments: allComments};
+//         return res.render("/", context);
+//     });
+// });
 
 // New Comment Route
 router.get("/", function(req, res){

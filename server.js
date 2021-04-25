@@ -27,9 +27,9 @@ app.use("/home", express.static("/public"));
 // 
 // CHANGE///////////////////////////////////
 // app.use("/fruits", controllers.fruits);
-app.use("/articles", controllers.articles);
-app.use("/comments", controllers.comments);
-app.use("/users", controllers.users);
+// app.use("/recipes", controllers.recipes);
+// app.use("/comments", controllers.comments);
+// app.use("/users", controllers.users);
 /* =====  Routes ===== */
 
 /* 
@@ -45,8 +45,9 @@ app.use("/users", controllers.users);
 // CRUD 
 // 1) presentational
 // 2) show
+ // * === RECIPE ROUTES === * //
 
-// 1) HOME ROUTE
+// 1) HOME ROUTE FOR RECIPES
 app.get("/", function (request, response) {
   const context = {
     allRecipes: db.Recipes,
@@ -54,13 +55,42 @@ app.get("/", function (request, response) {
   response.render("home", context);
 });
 
-// 2) SHOW ROUTE
-app.use("/:index", function (request, response) {
+ // 1) HOME ROUTE FOR COMMENTS
+app.get("/indexComments", function (request, response) {
   const context = {
-    Recipes: db.Recipes[request.params.index],
+    allComments: db.Comments,
   };
-  response.render("recipes/showRecipes", context);
+  response.render("comments/indexComments", context)
 });
+
+// // 2) SHOW ROUTE
+// app.get("/:index", function (request, response) {
+//   const context = {
+//     Recipes: db.Recipes[request.params.index],
+//   };
+//   response.render("recipes/showRecipes", context);
+// });
+
+// // 2) SHOW ROUTE
+// app.use("/showRecipe/:index", function (request, response) {
+//   const context = {
+//     Recipes: db.Recipes[request.params.index],
+//   };
+//   response.render("recipes/showRecipes", context);
+// });
+// app.get("/showComments/:index", function(req, res){
+// //   db.Comments.find({}, function (err, allComments){
+// //       if (err) return res.send(err);
+
+// //       const context = {comments: allComments};
+// //       return res.render("/", context);
+// //   });
+// // });
+// const context = {
+//   Comments: db.Comments[request.params.index],
+// };
+// response.render("comments/showComments", context);
+// });
 
 // * ===== Server Bind ==== *//
 app.listen(PORT, function () {
