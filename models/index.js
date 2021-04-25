@@ -22,13 +22,17 @@
 //     });
 
     module.exports = {
-<<<<<<< HEAD
+
         Recipes: require("./Recipes"),
         // User: require("./User"),
         // Comments: require("./Comments");
-=======
+
         Atricles: require("./Recipes"),
         User: require("./User"),
         Comments: require("./Comments")
->>>>>>> c8afd0dcc94ad2ba5c0c61a561d8d53c1e0b6ca8
+
+        Atricles: require("./Recipes"),
+        User: require("./User"),
+        Comments: require("./Comments")
+
     };

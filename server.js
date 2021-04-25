@@ -12,14 +12,13 @@ app.set("view engine", "ejs");
 // app.use(express.urlencoded({ extended: true }));
 // json express.json()
 // app.use(methodOverride("_method"));
-<<<<<<< HEAD
+
 // app.use(express.static(__dirname + "/public"));
 
 // * === Controllers === * //
 // app.use("/", controllers.);
 
 // * =====  Routes ===== * //
-=======
 app.use("/home", express.static("/public"));
 
 // look for ?_method=TYPE change the TYPE to what you need
@@ -32,7 +31,6 @@ app.use("/articles", controllers.articles);
 app.use("/comments", controllers.comments);
 app.use("/users", controllers.users);
 /* =====  Routes ===== */
->>>>>>> c8afd0dcc94ad2ba5c0c61a561d8d53c1e0b6ca8
 
 /* 
   Requests Methods

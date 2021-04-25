@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // const mongoose = require("mongoose");
 const Recipes = [
     {name: "Chicken Alfredo", img: "https://howtocook.eu.org/wp-content/uploads/2020/02/The-30-Minute-Easy-Chicken-Alfredo.jpg", ingredients: "Bacon ipsum dolor amet incididunt in fatback tongue tenderloin bresaola ut do short loin doner. Consequat landjaeger leberkas culpa nisi. Labore chicken ipsum ham hock, fatback corned beef brisket nostrud dolore shankle salami. Shankle shank porchetta, enim capicola sed commodo incididunt venison chicken. Minim drumstick exercitation nulla turkey fugiat pariatur occaecat ut dolor. Reprehenderit rump ad landjaeger nulla salami commodo pancetta meatloaf in filet mignon.", directions: " do the thing"},
@@ -8,8 +8,7 @@ const Recipes = [
 
 
 
-module.exports = Recipes;
-=======
+
 const mongoose = require("mongoose");
 
 const articleSchema = new mongoose (
@@ -23,5 +22,8 @@ const articleSchema = new mongoose (
 
 const Article = mongoose.model("Article", articleSchema);
 
+
 module.exports = Articles;
->>>>>>> c8afd0dcc94ad2ba5c0c61a561d8d53c1e0b6ca8
+
+module.exports = Articles;
+
