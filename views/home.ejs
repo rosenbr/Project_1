@@ -10,5 +10,13 @@
 </head>
 <body>
     <p>home page</p>
+    <ul>
+        <% allRecipes.forEach((Recipes, index) => { %>
+            <li>
+              <a href="/<%= index %>"> <%= Recipes.name %> </a>
+              <a href="/<%= index %>"> <%= Recipes.img %> </a>
+            </li>
+            <% }); %>
+    </ul>
 </body>
 </html>
