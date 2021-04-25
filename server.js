@@ -1,34 +1,31 @@
 /* ===== External Modules ===== */
 // bring in OUTSIDE code
 const express = require("express");
+const app = express();
+const PORT = 4000;
 // const methodOverride = require("method-override");
+
+app.set("view engine", "ejs");
 
 /* ===== Internal Modules ===== */
 // bring in code from another file
-// const fruits = require("./models/Fruit.js"); single file
-// const db = require("./models");
 // const controllers = require("./controllers");
 
-/* ===== Instanced Modules ===== */
-const app = express(); // the express module requires us to create an object from the express function
-/* ===== Configuration Variables ===== */
+const app = express();
 const PORT = 4000;
-
-/* ===== App Configuration ===== */
-// set the view engine to ejs
 app.set("view engine", "ejs");
-
 /* ===== Middleware ===== */
 // handle body data
-// app.use(express.urlencoded({ extended: true }));
-// // json express.json()
+app.use(express.urlencoded({ extended: true }));
+// json express.json()
 // app.use(methodOverride("_method"));
+app.use(express.static(__dirname + "/public"));
 
 // look for ?_method=TYPE change the TYPE to what you need
 
 /* =====  Controllers ===== */
-
-// CHANGE
+// 
+// CHANGE///////////////////////////////////
 // app.use("/fruits", controllers.fruits);
 
 /* =====  Routes ===== */
@@ -47,9 +44,12 @@ app.set("view engine", "ejs");
 // .get is used or GET method request
 // .get("url location", callback function)
 // .get("/", function(request, response){})
-// app.get("/", function (request, response) {
-// 	// response object is in charge of sending stuff back to the client
-// 	// response.send("Hello Class!");
+app.get("/", function (request, response) {
+	
+	response.render("home");
+});
+
+
 
 // 	// to render an ejs file
 // 	// .render("file", data)
