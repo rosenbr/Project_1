@@ -10,5 +10,75 @@ const db = require("../models");
     - Update
     - Delete
 */
+// TODO update url pathways when they are ready
+
+// Comments Index Route
+// NOTE Do we need an index of comments from the User?
+router.get("/comments", function(req, res){
+    db.Comments.find({}, function (err, allComments){
+        if (err) return res.send(err);
+
+        const context = {comments: allComments};
+        return res.render("comments/index", context);
+    });
+});
+
+// New Comment Route
+router.get("/newComment", function(req, res){
+    res.render("comments/new");
+});
+
+// Show Comments Route
+// NOTE popultaing the article page with comments?
+router.get("/", function(req,res){
+    db.Comments.findById(req.params.id)
+        .populate("comments")
+        .exec(function (err, foundComments){
+            if(err) return res.send(err);
+
+            const context = {comments: foundComments};
+            return res.render("/", context);
+        });
+});
+
+
+// Create Comment Route
+router.post("/", function(req, res){
+    db.Comments.findById(req.params.id, function(err, foundComments){
+        if(err) return res.send(err);
+
+        return res.redirect("/");
+    });
+});
+
+// Edit Comments Route (presentational)
+router.get("/", function(req, res){
+    db.Comments.findById(req.params.id, function(err, foundComments){
+        if(err) return res.send(err);
+
+        const context = {comments: foundComments};
+        return res.render("/", context);
+    });
+});
+
+// Update Comments Route
+router.put("/", function(req, res){
+    db.Comments.findByIdAndUpdate(
+        req.params.id,
+        {
+            $set: {
+                ...req.body,
+            },
+        },
+        {new: true},
+        function(err, updateComments){
+            if(err) return res.send(err);
+            return res.redirect("/");
+        }
+    );
+});
+
+// Delete Comments Route
+
 
 module.exports = router;
