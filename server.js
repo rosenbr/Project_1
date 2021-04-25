@@ -11,6 +11,9 @@ app.set("view engine", "ejs");
 // bring in code from another file
 // const controllers = require("./controllers");
 
+const app = express();
+const PORT = 4000;
+app.set("view engine", "ejs");
 /* ===== Middleware ===== */
 // handle body data
 app.use(express.urlencoded({ extended: true }));
