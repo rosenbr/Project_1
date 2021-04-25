@@ -1,19 +1,5 @@
-/* ===== External Modules ===== */
-// bring in OUTSIDE code
 const express = require("express");
-// const app = express();
-// const PORT = 4000;
-const methodOverride = require("method-override");
-
-// app.set("view engine", "ejs");
-
-/* ===== Internal Modules ===== */
-// bring in code from another file
-// const controllers = require("./controllers");
-
 const app = express();
-
-/* ==== Configuration ==== */
 const PORT = 4000;
 app.set("view engine", "ejs");
 /* ===== Middleware ===== */
@@ -21,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 // json express.json()
 // app.use(methodOverride("_method"));
-app.use(express.static(__dirname + "/public"));
+app.use("/home", express.static("/public"));
 
 // look for ?_method=TYPE change the TYPE to what you need
 
@@ -29,7 +15,9 @@ app.use(express.static(__dirname + "/public"));
 // 
 // CHANGE///////////////////////////////////
 // app.use("/fruits", controllers.fruits);
-
+app.use("/articles", controllers.articles);
+app.use("/comments", controllers.comments);
+app.use("/users", controllers.users);
 /* =====  Routes ===== */
 
 /* 
