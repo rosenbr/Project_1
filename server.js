@@ -9,7 +9,7 @@ app.set("view engine", "ejs");
 
 
 // * ===== Middleware ===== * //
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 // json express.json()
 // app.use(methodOverride("_method"));
 
@@ -79,13 +79,15 @@ app.get("/showComments/:index", function (request, response) {
   response.render("comments/showComments", context);
 });
 
-// // 3) CREATE ROUTE COMMENTS
-app.get("/createComments", function(request, respond){
-  // let commentBody = request.body;
-  // db.push(commentBody);
-  //respond.redirect("/");
-  // respond.render("/createComments");
-  respond.send("it sent");
+// 3) CREATE ROUTE COMMENTS
+app.get("/createComments", function(request, response){
+  response.render("comments/createComments");
+});
+// 4) CREATE ROUTE COMMENTS
+app.post("/createComments", function(request, respond){
+  let commentBody = request.body;
+  db.Comments.push(commentBody);
+  respond.redirect("/");
 });
 
 
