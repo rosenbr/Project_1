@@ -80,10 +80,15 @@ app.get("/showComments/:index", function (request, response) {
   response.render("comments/showComments", context);
 });
 
-// // 3) CREATE ROUTE COMMENTS
-app.get("/createComments", function(request, respond){
-  // respond.redirect("/createComments");
-  // respond.send("create page");
+// 3) CREATE ROUTE COMMENTS
+app.get("/createComments", function(request, response){
+  response.render("comments/createComments");
+});
+// 4) CREATE ROUTE COMMENTS
+app.post("/createComments", function(request, respond){
+  let commentBody = request.body;
+  db.Comments.push(commentBody);
+  respond.redirect("/");
 });
 
 app.post("/createComments", function(request, respond){
