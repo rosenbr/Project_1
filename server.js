@@ -90,6 +90,12 @@ app.post("/createComments", function(request, respond){
   db.Comments.push(commentBody);
   respond.redirect("/");
 });
+// 4) CREATE ROUTE COMMENTS
+app.post("/createComments", function(request, respond){
+  let commentBody = request.body;
+  db.Comments.push(commentBody);
+  respond.redirect("/");
+});
 
 app.post("/createComments", function(request, respond){
     let commentBody = request.body;
