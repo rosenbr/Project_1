@@ -1,12 +1,12 @@
 // * === Const and Require === * //
 const express = require("express");
-const app = express();
-const db = require("./models");
-const PORT = 4000;
-// const controllers = require("./controllers");
 const methodOverride = require("method-override");
-const { response } = require("express");
+const controllers = require("./controllers");
+const app = express();
+const PORT = 4000;
 app.set("view engine", "ejs");
+const db = require("./models");
+const { response } = require("express");
 
 
 // * ===== Middleware ===== * //
@@ -17,7 +17,8 @@ app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 
 // * === Controllers === * //
-// app.use("/", controllers.);
+app.use("../recipes", controllers.recipes);
+app.use("../comments", controllers.comments);
 
 // * =====  Routes ===== * //
 // app.use("/home", express.static("/public"));
