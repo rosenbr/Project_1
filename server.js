@@ -64,7 +64,7 @@ app.get("/indexComments", function (request, response) {
 });
 
 // // 2) SHOW ROUTE
-app.get("/:index", function (request, response) {   //un-commented out this code block to have recipe links on home page go to recipe
+app.get("/:index", function (request, response) {   //un-commented out this code block to have recipe links on home page go to recipes
   const context = {
     Recipes: db.Recipes[request.params.index],
   };
