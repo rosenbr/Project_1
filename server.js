@@ -64,12 +64,12 @@ app.get("/indexComments", function (request, response) {
 });
 
 // // 2) SHOW ROUTE
-// app.get("/:index", function (request, response) {
-//   const context = {
-//     Recipes: db.Recipes[request.params.index],
-//   };
-//   response.render("recipes/showRecipes", context);
-// });
+app.get("/:index", function (request, response) {   //un-commented out this code block to have recipe links on home page go to recipe
+  const context = {
+    Recipes: db.Recipes[request.params.index],
+  };
+  response.render("recipes/showRecipes", context);
+});
 
 // // 2) SHOW ROUTE
 // app.use("/showRecipe/:index", function (request, response) {
