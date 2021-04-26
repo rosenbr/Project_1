@@ -4,14 +4,15 @@ const app = express();
 const db = require("./models");
 const PORT = 4000;
 // const controllers = require("./controllers");
-// const methodOverride = require("method-override");
+const methodOverride = require("method-override");
+const { response } = require("express");
 app.set("view engine", "ejs");
 
 
 // * ===== Middleware ===== * //
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 // json express.json()
-// app.use(methodOverride("_method"));
+app.use(methodOverride("_method"));
 
 app.use(express.static(__dirname + "/public"));
 
@@ -81,16 +82,16 @@ app.get("/showComments/:index", function (request, response) {
 
 // // 3) CREATE ROUTE COMMENTS
 app.get("/createComments", function(request, respond){
-  respond.render("comments/createComments");
+  // respond.redirect("/createComments");
+  // respond.send("create page");
 });
 
-/* app.post("/createComments", function(request, respond){
-  let commentBody = request.body;
-  db.Comments.push(commentBody);
-  // respond.redirect("/");
-  // respond.render("comments/createComments");
-  // respond.send("it sent");
-}); */
+app.post("/createComments", function(request, respond){
+    let commentBody = request.body;
+    db.Comments.push(commentBody);
+    response.send("create page");
+    // response.redirect("/comments/indexComments");
+  });
 
 
 // // 4) EDIT ROUTE COMMENTS
