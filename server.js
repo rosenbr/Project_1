@@ -65,21 +65,15 @@ app.get("/indexComments", function (request, response) {
   response.render("comments/indexComments", context)
 });
 
-// 2) SHOW ROUTE RECIPES
-app.get("/recipes/:index", function (request, response) {   //un-commented out this code block to have recipe links on home page go to recipe
-  const context = {
-    Recipes: db.Recipes[request.params.index],
-  };
-  response.render("recipes/showRecipes", context);
-});
 
-// // 2) SHOW ROUTE COMMENTS
+
+/* // // 2) SHOW ROUTE COMMENTS
 app.get("/showComments/:index", function (request, response) {
   const context = {
     Comments: db.Comments[request.params.index],
   };
   response.render("comments/showComments", context);
-});
+}); */
 
 // 3) CREATE ROUTE COMMENTS
 app.get("/createComments", function(request, response){
@@ -92,18 +86,7 @@ app.post("/createComments", function(request, respond){
   respond.redirect("/");
 });
 // 4) CREATE ROUTE COMMENTS
-app.post("/createComments", function(request, respond){
-  let commentBody = request.body;
-  db.Comments.push(commentBody);
-  respond.redirect("/");
-});
-
-app.post("/createComments", function(request, respond){
-    let commentBody = request.body;
-    db.Comments.push(commentBody);
-    response.send("create page");
-    // response.redirect("/comments/indexComments");
-  });
+/* ß */
 
 
 // // 4) EDIT ROUTE COMMENTS

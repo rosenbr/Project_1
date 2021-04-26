@@ -12,15 +12,26 @@ const db = require("../models");
     */
    // TODO update url pathways when they are ready
 
-// Home Route
-/* router.get("/indexComments", function (request, response) {
-   const context = {
-        allComments: db.Comments,
-   };
-   response.render("comments/indexComments", context)
-    // response.send("hi");
-}); */
+// 2) SHOW ROUTE COMMENTS
+router.get("/showComments/:index", function (request, response) {
+    const context = {
+      Comments: db.Comments[request.params.index],
+    };
+    response.render("comments/showComments", context);
+  });
 
+// 3) CREATE ROUTE COMMENTS
+router.get("/createComments", function(request, response){
+    response.render("comments/createComments");
+  });
+
+// 4) CREATE ROUTE COMMENTS
+router.post("/createComments", function(request, respond){
+    let commentBody = request.body;
+    db.Comments.push(commentBody);
+    respond.redirect("/");
+  });
+  
 // Show Route
 /* router.get("/showComments/:index", function (request, response) {
     const context = {
