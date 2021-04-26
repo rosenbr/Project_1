@@ -64,7 +64,7 @@ app.get("/indexComments", function (request, response) {
 });
 
 // 2) SHOW ROUTE RECIPES
-app.get("/:index", function (request, response) {   //un-commented out this code block to have recipe links on home page go to recipe
+app.get("/recipes/:index", function (request, response) {   //un-commented out this code block to have recipe links on home page go to recipe
   const context = {
     Recipes: db.Recipes[request.params.index],
   };
@@ -72,12 +72,37 @@ app.get("/:index", function (request, response) {   //un-commented out this code
 });
 
 // // 2) SHOW ROUTE COMMENTS
-app.use("/showComments/:index", function (request, response) {
+app.get("/showComments/:index", function (request, response) {
   const context = {
     Comments: db.Comments[request.params.index],
   };
   response.render("comments/showComments", context);
 });
+
+// // 3) CREATE ROUTE COMMENTS
+app.get("/createComments", function(request, respond){
+  // let commentBody = request.body;
+  // db.push(commentBody);
+  //respond.redirect("/");
+  // respond.render("/createComments");
+  respond.send("it sent");
+});
+
+
+// // 4) EDIT ROUTE COMMENTS
+/* app.get("/:index/edit", function(request, respond){
+  const commentIndex = request.params.index;
+  const editComment = dbComment.find(function(singleComment){
+    if(singleComment.index == commentIndex){
+      return singleComment;
+    };
+  });
+  const context = {
+    com: editComment
+  };
+
+  respond.render("/showComments/editComments", context);
+}); */
 
 // app.get("/showComments/:index", function(req, res){
 // //   db.Comments.find({}, function (err, allComments){
