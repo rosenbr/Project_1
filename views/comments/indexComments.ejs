@@ -12,6 +12,7 @@
         <% allComments.forEach((Comments, index) => { %>
             <li>
               <%= Comments.user %>
+              <p><%= Comments.comment %> </p>   <!-- added this line to get the content of the comments to show-->
             </li>
             <% }); %>
     </ul>
