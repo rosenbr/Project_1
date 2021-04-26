@@ -81,6 +81,7 @@ app.get("/showComments/:index", function (request, response) {
 
 // 3) CREATE ROUTE COMMENTS
 app.get("/createComments", function(request, response){
+  
   response.render("comments/createComments");
 });
 // 4) CREATE ROUTE COMMENTS
