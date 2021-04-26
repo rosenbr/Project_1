@@ -4,14 +4,14 @@ const app = express();
 const db = require("./models");
 const PORT = 4000;
 // const controllers = require("./controllers");
-// const methodOverride = require("method-override");
+const methodOverride = require("method-override");
 app.set("view engine", "ejs");
 
 
 // * ===== Middleware ===== * //
 app.use(express.urlencoded({ extended: true }));
 // json express.json()
-// app.use(methodOverride("_method"));
+app.use(methodOverride("_method"));
 
 app.use(express.static(__dirname + "/public"));
 
@@ -81,6 +81,7 @@ app.get("/showComments/:index", function (request, response) {
 
 // 3) CREATE ROUTE COMMENTS
 app.get("/createComments", function(request, response){
+  
   response.render("comments/createComments");
 });
 // 4) CREATE ROUTE COMMENTS
