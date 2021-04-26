@@ -23,8 +23,7 @@ const db = require("../models");
 //     });
 // });
 
-
-// New Comment Route
+/* // New Comment Route
 router.get("/", function(req, res){
     res.render("/");
 });
@@ -77,7 +76,7 @@ router.put("/", function(req, res){
             return res.redirect("/");
         }
     );
-});
+}); */
 
 // Delete Comments Route 
 

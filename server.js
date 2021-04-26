@@ -81,27 +81,32 @@ app.get("/showComments/:index", function (request, response) {
 
 // // 3) CREATE ROUTE COMMENTS
 app.get("/createComments", function(request, respond){
-  // let commentBody = request.body;
-  // db.push(commentBody);
-  //respond.redirect("/");
-  // respond.render("/createComments");
-  respond.send("it sent");
+  respond.render("comments/createComments");
 });
+
+/* app.post("/createComments", function(request, respond){
+  let commentBody = request.body;
+  db.Comments.push(commentBody);
+  // respond.redirect("/");
+  // respond.render("comments/createComments");
+  // respond.send("it sent");
+}); */
 
 
 // // 4) EDIT ROUTE COMMENTS
-/* app.get("/:index/edit", function(request, respond){
+/* app.get("/editComments", function(request, respond){
   const commentIndex = request.params.index;
-  const editComment = dbComment.find(function(singleComment){
+  const editComment = db.Comments.find(function(singleComment){
     if(singleComment.index == commentIndex){
       return singleComment;
     };
   });
   const context = {
-    com: editComment
+    Comments: editComment
   };
 
-  respond.render("/showComments/editComments", context);
+  respond.render("comments/editComments", context);
+  // respond.send("edit page");
 }); */
 
 // app.get("/showComments/:index", function(req, res){
