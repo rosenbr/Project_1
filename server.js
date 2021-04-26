@@ -13,13 +13,13 @@ app.set("view engine", "ejs");
 // json express.json()
 // app.use(methodOverride("_method"));
 
-// app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
 
 // * === Controllers === * //
 // app.use("/", controllers.);
 
 // * =====  Routes ===== * //
-app.use("/home", express.static("/public"));
+// app.use("/home", express.static("/public"));
 
 // look for ?_method=TYPE change the TYPE to what you need
 
@@ -63,7 +63,7 @@ app.get("/indexComments", function (request, response) {
   response.render("comments/indexComments", context)
 });
 
-// // 2) SHOW ROUTE
+// 2) SHOW ROUTE RECIPES
 app.get("/:index", function (request, response) {   //un-commented out this code block to have recipe links on home page go to recipe
   const context = {
     Recipes: db.Recipes[request.params.index],
@@ -71,13 +71,14 @@ app.get("/:index", function (request, response) {   //un-commented out this code
   response.render("recipes/showRecipes", context);
 });
 
-// // 2) SHOW ROUTE
-// app.use("/showRecipe/:index", function (request, response) {
-//   const context = {
-//     Recipes: db.Recipes[request.params.index],
-//   };
-//   response.render("recipes/showRecipes", context);
-// });
+// // 2) SHOW ROUTE COMMENTS
+app.use("/showComments/:index", function (request, response) {
+  const context = {
+    Comments: db.Comments[request.params.index],
+  };
+  response.render("comments/showComments", context);
+});
+
 // app.get("/showComments/:index", function(req, res){
 // //   db.Comments.find({}, function (err, allComments){
 // //       if (err) return res.send(err);
