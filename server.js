@@ -63,7 +63,6 @@ app.get("/indexComments", function (request, response) {
   response.render("comments/indexComments", context)
 });
 
-
 // 2) SHOW ROUTE RECIPES
 app.get("/:index", function (request, response) {   //un-commented out this code block to have recipe links on home page go to recipe
   const context = {
