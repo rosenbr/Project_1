@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
-const dbUrl = "mongodb://localhost:27017/blogdb";
+// const dbUrl = "mongodb://localhost:27017/blogdb";
 
-mongoose
+/* mongoose
     .connect(dbUrl, {
         useNewUrlParser: true,
 		useUnifiedTopology: true,
@@ -19,7 +19,7 @@ mongoose
 
     mongoose.connection.on("discconected",function(){
         console.log("Mongodb disconnected");
-    });
+    }); */
 
     module.exports = {
 

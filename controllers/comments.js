@@ -15,15 +15,17 @@ const db = require("../models");
    // 1) HOME ROUTE FOR COMMENTS
 router.get("/indexComments", function (request, response) {
     const context = {
-      allComments = db.Comments,
+      allComments: db.Comments,
     };
     response.render("comments/indexComments", context)
+    // response.send(context);
   });
   
 // 2) SHOW ROUTE COMMENTS
 router.get("/showComments/:index", function (request, response) {
     const context = {
       Comments: db.Comments[request.params.index],
+      index: request.params.index,
     };
     response.render("comments/showComments", context);
   });
@@ -37,8 +39,8 @@ router.get("/createComments", function(request, response){
 router.post("/createComments", function(request, respond){
     let commentBody = request.body;
     db.Comments.push(commentBody);
-    respond.redirect("/indexComments");
-  });
+    respond.redirect("/comments/indexComments");
+  }); 
 
 // Show Route
 /* router.get("/showComments/:index", function (request, response) {

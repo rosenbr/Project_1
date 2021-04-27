@@ -12,11 +12,11 @@
     <ul>
         <% allComments.forEach((Comments, index) => { %>
             <li>
-              <a href="/showComments/<%= index %>"<%= Comments.user %></a>
+              <a href="/comments/showComments/<%= index %>"<%= Comments.user %></a>
               <p><%= Comments.comment %> </p>   <!-- added this line to get the content of the comments to show-->
             </li>
             <% }); %>
-            <a href="/createComments">Add Comment</a>
+            <a href="/comments/createComments">Add Comment</a>
             <a href="/">Home!</a>
     </ul>
 </body>
