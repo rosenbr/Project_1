@@ -9,19 +9,26 @@
     <title>Home</title>
 </head>
 <body>
-    <h2>Side Bar</h2>
-    <div class="container-fluid">
-        <img class="rhsBerry" src="/berries stock photo rhs.jpg">
-    <div class="container-fluid">
-    <ul>
-        <% allRecipes.forEach((Recipes, index) => { %>
-            <li>
-                <a href="/recipes/showRecipes/<%= index %>"> <%= Recipes.name %> </a>
-                <a href="/recipes/showRecipes/<%= index %>"> <%= Recipes.img %> </a>
-            </li>
-        <% }) %>
-    </ul>
-    <a href="/comments/indexComments">Go to Comments</a>
+    <div class="container">
+        <div class="row"> 
+
+            <div class="column">
+            <h2>Side Bar</h2>
+            </div>
+
+
+            <div class="column gallery">
+                <ul><% allRecipes.forEach((Recipes, index) => { %>
+                        <li>
+                            <a href="/recipes/showRecipes/<%= index %>"> <%= Recipes.img %> </a>
+                            <a href="/recipes/showRecipes/<%= index %>"> <%= Recipes.name %> </a>
+                        </li>
+                    <% }) %>
+                </ul>
+                    <a href="/comments/indexComments">Go to Comments</a>
+            
+            </div>
+        </div>
     </div>
 </body>
 </html>

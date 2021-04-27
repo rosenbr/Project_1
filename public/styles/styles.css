@@ -1,11 +1,38 @@
 * {
     box-sizing:border-box;
-},
+}
 
+/* MAIN AND CONSISTENT ELEMENTS */
 body {
     background-color: rgb(250, 250, 250);
 }
 
+/* PUT NAV BAR STUFF HERE UNDER MAIN ELEMENTS */
+
+/* RECIPE GALLERY */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gallery li {
+    width: 30%;
+}
+
+@media screen and (max-width: 600px) {
+    .gallery li {
+        width:50%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .gallery li {
+        width:100%;
+    }
+}
+/* FORMS */
 form {
     padding: 20px;
     display: flex;
@@ -25,10 +52,26 @@ input:focus {
     border-radius: 20px;
     border: 5px solid royalblue;
     outline: none;
-
+    border-width: 10px;
+    border-color: hsla(0, 0%, 100%, 0.52);
 }
 
-button {
+input::placeholder {
+    color: rgb(143, 143, 143);
+}
+
+input[type="text"] {
+    border-radius: 15px, 0 0 15px;
+   
+}
+
+input[text="submit"] {
+    background-color: red;
+    border-radius: 0 15px 15px 0;
+    flex: 1;
+}
+
+button { 
     padding: 10px;
 }
 
