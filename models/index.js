@@ -1,8 +1,9 @@
-// const mongoose = require("mongoose");
+require("dotenv").config();
+const mongoose = require("mongoose");
 
-// const dbUrl = "mongodb://localhost:27017/blogdb";
+const dbUrl = process.env.MONGODB_URI;
 
-/* mongoose
+mongoose
     .connect(dbUrl, {
         useNewUrlParser: true,
 		useUnifiedTopology: true,
@@ -19,7 +20,7 @@
 
     mongoose.connection.on("discconected",function(){
         console.log("Mongodb disconnected");
-    }); */
+    }); 
 
     module.exports = {
 
