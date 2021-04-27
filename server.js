@@ -15,7 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 // json express.json()
 app.use(methodOverride("_method"));
 
+// * ===== Serve Images and Public Folders ==== * ///
 app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/images"));
 
 // * === Controllers === * //
 app.use("/recipes", controllers.recipes);
