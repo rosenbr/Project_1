@@ -11,41 +11,23 @@ const db = require("../models");
     - Update
     - Delete
     */
-   // TODO update url pathways when they are ready
 
-   // 1) HOME ROUTE FOR COMMENTS
-/* router.get("/indexComments", function (request, response) {
-    const context = {
-      allComments: db.Comments,
-      Comments: request.params.index,
-    };
-    response.render("comments/indexComments", context)
-    // response.send(context);
-  }); */
-  
+// Index Route
 router.get("/indexComments", function(req, res){
   db.Comments.find({}, function(err, foundComments){
     if (err) return res.send(err);
 
-    const context = {comments: foundComments};
+    const context = {Comments: foundComments};
     res.render("comments/indexComments", context);
   });
 });
 
-// 2) SHOW ROUTE COMMENTS
-/* router.get("/showComments/:index", function (request, response) {
-    const context = {
-      Comments: db.Comments[request.params.index],
-      index: request.params.index,
-    };
-    response.render("comments/showComments", context);
-  }); */
-
-router.get("/showComments/:index", function (req, res) {
-  db.Comments.findByIndex(req.params.id, function (err, foundComment) {
+// Show Route
+router.get("/showComments/:_id", function (req, res) {
+  db.Comments.findById(req.params.id, function (err, foundComment) { //
     if (err) return res.send(err);
 
-    const context = { comments: foundComment };
+    const context = { Comments: foundComment };
     res.render("comments/showComments", context);
   });
 });
@@ -71,7 +53,6 @@ router.post("/createComments", function (req, res) {
     return res.redirect("indexComments");
   });
 });
-
 
 // == Start of non mongoose == //
 // // Edit Comments Route (presentational)

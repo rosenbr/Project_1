@@ -9,8 +9,9 @@
     <title>Comment</title>
 </head>
 <body>
-    <p><%= Comments.user %> </p>
-    <p><%= Comments.body %> </p>
+    <p><%= Comments.name %></p>
+    <p><%= Comments.body %> </p> 
+    <p><%= Comments.timestamps %></p>
     <a href="/comments/editComments/<%= Comments.index %>">Edit</a>
     <button>Delete</button>
     <a href="/">Home!</a>

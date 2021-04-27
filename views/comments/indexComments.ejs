@@ -14,8 +14,9 @@
         <% comments.forEach((Comments, index) => { %>
             <li>
               <a href="/comments/showComments/<%= index %>"<%= Comments.user %></a>
-              <p><%= Comments.user %></p>
-              <p><%= Comments.body %> </p>   <!-- added this line to get the content of the comments to show-->
+              <p><%= Comments.name %></p>
+              <p><%= Comments.body %> </p> 
+              <p><%= Comments.timestamps %></p>
             </li>
             <% }); %>
             <a href="/comments/createComments">Add Comment</a>

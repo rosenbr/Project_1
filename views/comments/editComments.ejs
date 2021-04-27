@@ -11,9 +11,9 @@
 <body>
     <h1>Edit Page</h1>
 
-    <p>User: <%= Comments.user %> </p>
-    <p>Comment: <%= Comments.comment %> </p>
-    
+    <p>User: <%= Comments.name %> </p>
+    <p>Comment: <%= Comments.body %> </p>
+    <p><%= Comments.timestamps %></p>
     <!-- broken line, "Cannot PUT"-->
     <form action="/comments/indexComments/<%= Comments.index %>?_method=PUT" method="POST"><input type="text" name="comment" placehold="comment">
         <input type="submit">
