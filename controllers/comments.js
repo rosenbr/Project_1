@@ -44,7 +44,6 @@ router.post("/createComments", function(request, response){
   }); 
 
 // Edit Comments Route (presentational)
-// findById === not a function, findByIndex === not a function, ugh
 router.get("/editComments", function(request, response){
   const context = {
     Comments: db.Comments,
@@ -52,29 +51,40 @@ router.get("/editComments", function(request, response){
   response.render("comments/editComments", context);
   // response.send("edit page");
 });
-/* router.get("/editComments/:index", function(request, respond){
-    db.Comments.findByIndex(request.params.index, function(err, foundComments){
-        if(err) return respond.send(err);
 
-        const context = {comments: foundComments};
-        return respond.render("/comments/editComments", context);
-    });
-    // respond.send("edit page");  <-- working
-}); */
+// Update Comments Route (Functional)
+// "Cannot PUT /comments/indexComments/" line in .ejs file has comment on it
+router.put("/editComments", function(request, response) {
+  const index = request.params.index;
+  const newComment = request.body;
+  const commentEdit = db.Comments.find(function(foundComment) {
+      if(foundComment.index == index) {
+          foundComment.name = newComment.name;
+          foundComment.comment = newComment.comment;
+          return foundComment;
+      };
 
-// Update Comments Route
-// router.put("/", function(req, res){
-//     db.Comments.findByIdAndUpdate(
-//         req.params.id,
+  });
+  const context = {
+      Comments: commentEdit
+  };
+  response.render("comments/indexComments", context);
+});
+
+
+
+// router.put("/editComments", function(request, response){
+//     db.Comments.findByIndexAndUpdate(
+//         request.params.index,
 //         {
 //             $set: {
-//                 ...req.body,
+//                 ...request.body,
 //             },
 //         },
 //         {new: true},
 //         function(err, updateComments){
-//             if(err) return res.send(err);
-//             return res.redirect("/");
+//             if(err) return response.send(err);
+//             return response.redirect("comments/indexComments");
 //         }
 //     );
 // });
