@@ -1,14 +1,13 @@
 // * === Const and Require === * //
 const express = require("express");
-const methodOverride = require("method-override");
 const controllers = require("./controllers");
 const app = express();
 const PORT = 4000;
-// const controllers = require("./controllers");
 const methodOverride = require("method-override");
 app.set("view engine", "ejs");
 const db = require("./models");
 const { response } = require("express");
+const router = express.Router();
 
 
 // * ===== Middleware ===== * //
@@ -59,13 +58,13 @@ app.get("/", function (request, response) {
   response.render("home", context);
 });
 
- // 1) HOME ROUTE FOR COMMENTS
-app.get("/indexComments", function (request, response) {
+ /* // 1) HOME ROUTE FOR COMMENTS
+router.get("/indexComments", function (request, response) {
   const context = {
     allComments: db.Comments,
   };
   response.render("comments/indexComments", context)
-});
+}); */
 
 
 
@@ -78,7 +77,7 @@ app.get("/showComments/:index", function (request, response) {
 }); */
 
 // 3) CREATE ROUTE COMMENTS
-app.get("/createComments", function(request, response){
+/* app.get("/createComments", function(request, response){
   
   response.render("comments/createComments");
 });
@@ -87,10 +86,9 @@ app.post("/createComments", function(request, respond){
   let commentBody = request.body;
   db.Comments.push(commentBody);
   respond.redirect("/");
-});
+}); */
 // 4) CREATE ROUTE COMMENTS
-/* ß */
-
+// Moved to controller/comments.js
 
 // // 4) EDIT ROUTE COMMENTS
 /* app.get("/editComments", function(request, respond){

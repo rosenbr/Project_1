@@ -12,6 +12,14 @@ const db = require("../models");
     */
    // TODO update url pathways when they are ready
 
+   // 1) HOME ROUTE FOR COMMENTS
+router.get("/indexComments", function (request, response) {
+    const context = {
+      allComments = db.Comments,
+    };
+    response.render("comments/indexComments", context)
+  });
+  
 // 2) SHOW ROUTE COMMENTS
 router.get("/showComments/:index", function (request, response) {
     const context = {
@@ -29,9 +37,9 @@ router.get("/createComments", function(request, response){
 router.post("/createComments", function(request, respond){
     let commentBody = request.body;
     db.Comments.push(commentBody);
-    respond.redirect("/");
+    respond.redirect("/indexComments");
   });
-  
+
 // Show Route
 /* router.get("/showComments/:index", function (request, response) {
     const context = {
