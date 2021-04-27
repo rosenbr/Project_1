@@ -11,7 +11,7 @@
 <body>
     <h1>Comments</h1>
     <ul>
-        <% allComments.forEach((Comments, index) => { %>
+        <% comments.forEach((Comments, index) => { %>
             <li>
               <a href="/comments/showComments/<%= index %>"<%= Comments.user %></a>
               <p><%= Comments.user %></p>

@@ -14,63 +14,93 @@ const db = require("../models");
    // TODO update url pathways when they are ready
 
    // 1) HOME ROUTE FOR COMMENTS
-router.get("/indexComments", function (request, response) {
+/* router.get("/indexComments", function (request, response) {
     const context = {
       allComments: db.Comments,
+      Comments: request.params.index,
     };
     response.render("comments/indexComments", context)
     // response.send(context);
-  });
+  }); */
   
+router.get("/indexComments", function(req, res){
+  db.Comments.find({}, function(err, foundComments){
+    if (err) return res.send(err);
+
+    const context = {comments: foundComments};
+    res.render("comments/indexComments", context);
+  });
+});
+
 // 2) SHOW ROUTE COMMENTS
-router.get("/showComments/:index", function (request, response) {
+/* router.get("/showComments/:index", function (request, response) {
     const context = {
       Comments: db.Comments[request.params.index],
       index: request.params.index,
     };
     response.render("comments/showComments", context);
-  });
+  }); */
 
-// 3) CREATE ROUTE COMMENTS
+router.get("/showComments/:index", function (req, res) {
+  db.Comments.findByIndex(req.params.id, function (err, foundComment) {
+    if (err) return res.send(err);
+
+    const context = { comments: foundComment };
+    res.render("comments/showComments", context);
+  });
+});
+
+
+// 3) CREATE ROUTE COMMENTS (Presentational)
 router.get("/createComments", function(request, response){
-    response.render("comments/createComments");
+      response.render("comments/createComments");
+    });
+  
+  // // 4) CREATE ROUTE COMMENTS (Functional)
+  // router.post("/createComments", function(request, response){
+    //     let commentBody = request.body;
+    //     db.Comments.push(commentBody);
+    //     response.redirect("indexComments");
+    //   }); 
+
+router.post("/createComments", function (req, res) {
+  db.Comments.create(req.body, function (err, createdComment) {
+    if (err) return res.send(err);
+    
+    return res.redirect("showComments");
   });
-
-// 4) CREATE ROUTE COMMENTS
-router.post("/createComments", function(request, response){
-    let commentBody = request.body;
-    db.Comments.push(commentBody);
-    response.redirect("indexComments");
-  }); 
-
-// Edit Comments Route (presentational)
-router.get("/editComments", function(request, response){
-  const context = {
-    Comments: db.Comments,
-  };
-  response.render("comments/editComments", context);
-  // response.send("edit page");
 });
 
-// Update Comments Route (Functional)
-// "Cannot PUT /comments/indexComments/" line in .ejs file has comment on it
-router.put("/editComments", function(request, response) {
-  const index = request.params.index;
-  const newComment = request.body;
-  const commentEdit = db.Comments.find(function(foundComment) {
-      if(foundComment.index == index) {
-          foundComment.name = newComment.name;
-          foundComment.comment = newComment.comment;
-          return foundComment;
-      };
 
-  });
-  const context = {
-      Comments: commentEdit
-  };
-  response.render("comments/indexComments", context);
-});
+// == Start of non mongoose == //
+// // Edit Comments Route (presentational)
+// router.get("/editComments", function(request, response){
+//   const context = {
+//     Comments: db.Comments,
+//   };
+//   response.render("comments/editComments", context);
+//   // response.send("edit page");
+// });
 
+// // Update Comments Route (Functional)
+// // "Cannot PUT /comments/indexComments/" line in .ejs file has comment on it
+// router.put("/editComments", function(request, response) {
+//   const index = request.params.index;
+//   const newComment = request.body;
+//   const commentEdit = db.Comments.find(function(foundComment) {
+//       if(foundComment.index == index) {
+//           foundComment.name = newComment.name;
+//           foundComment.comment = newComment.comment;
+//           return foundComment;
+//       };
+
+//   });
+//   const context = {
+//       Comments: commentEdit
+//   };
+//   response.render("comments/indexComments", context);
+// });
+// == End of non mongoose == //
 
 
 // router.put("/editComments", function(request, response){
