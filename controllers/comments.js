@@ -13,17 +13,17 @@ const db = require("../models");
     */
 
 // Index Route
-router.get("/showRecipes", function(req, res){
+router.get("/indexComments", function(req, res){
   db.Comments.find({}, function(err, foundComments){
     if (err) return res.send(err);
 
     const context = {Comments: foundComments};
-    res.render("recipes/showRecipes", context);
+    res.render("comments/indexComments", context);
   });
 });
 
 // Show Route
-router.get("/showComments/:_id", function (req, res) {
+router.get("/showComments/:id", function (req, res) {
   db.Comments.findById(req.params.id, function (err, foundComment) { //
     if (err) return res.send(err);
 
