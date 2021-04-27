@@ -10,28 +10,37 @@ body {
 /* PUT NAV BAR STUFF HERE UNDER MAIN ELEMENTS */
 
 /* RECIPE GALLERY */
-
 .gallery {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.gallery li {
+.gallery .recipe {
     width: 30%;
+    height: 300px;
+}
+
+.recipe img {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
 }
 
 @media screen and (max-width: 600px) {
-    .gallery li {
+    .gallery .recipe {
         width:50%;
     }
 }
 
 @media screen and (max-width: 400px) {
-    .gallery li {
+    .gallery .recipe {
         width:100%;
     }
 }
+
+/* SIDE NAV BAR */
+
 /* FORMS */
 form {
     padding: 20px;
