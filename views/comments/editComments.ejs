@@ -10,9 +10,13 @@
 <body>
     <h1>Edit Page</h1>
 
-    <p><%= Comments.user %> </p>
-    <p><%= Comments.comment %> </p>
-    <form action="/" method="POST"><input type="text" name="comment" value="<%= Comments.comment%>"></form>
+    <p>User: <%= Comments.user %> </p>
+    <p>Comment: <%= Comments.comment %> </p>
+    
+    
+    <form action="/comments/editComments/<%= Comments.index %>" method="POST"><input type="text" name="comment" placehold="comment">
+        <input type="submit">
+    </form>
     <button>Edit</button>
     <button>Delete</button>
     <a href="/">Home!</a>
