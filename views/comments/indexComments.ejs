@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" href="/styles/styles.css" type="text/css">
+    <title>Comments</title>
+</head>
+<body>
+    <h1>Comments</h1>
+    <ul>
+        <% allComments.forEach((Comments, index) => { %>
+            <li>
+              <a href="/comments/showComments/<%= index %>"<%= Comments.user %></a>
+              <p><%= Comments.comment %> </p>   <!-- added this line to get the content of the comments to show-->
+            </li>
+            <% }); %>
+            <a href="/comments/createComments">Add Comment</a>
+            <a href="/">Home!</a>
+    </ul>
+</body>
+</html>
