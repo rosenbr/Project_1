@@ -13,12 +13,12 @@ const db = require("../models");
     */
 
 // Index Route
-router.get("/indexComments", function(req, res){
+router.get("/showRecipes", function(req, res){
   db.Comments.find({}, function(err, foundComments){
     if (err) return res.send(err);
 
     const context = {Comments: foundComments};
-    res.render("comments/indexComments", context);
+    res.render("recipes/showRecipes", context);
   });
 });
 
