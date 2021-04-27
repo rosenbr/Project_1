@@ -1,11 +1,13 @@
 // * === Const and Require === * //
 const express = require("express");
-const app = express();
 const db = require("./models");
+const controllers = require("./controllers");
+const app = express();
 const PORT = 4000;
-// const controllers = require("./controllers");
 const methodOverride = require("method-override");
 app.set("view engine", "ejs");
+// const { response } = require("express");
+const router = express.Router();
 
 
 // * ===== Middleware ===== * //
@@ -16,7 +18,8 @@ app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 
 // * === Controllers === * //
-// app.use("/", controllers.);
+app.use("/recipes", controllers.recipes);
+app.use("/comments", controllers.comments);
 
 // * =====  Routes ===== * //
 // app.use("/home", express.static("/public"));
@@ -55,32 +58,26 @@ app.get("/", function (request, response) {
   response.render("home", context);
 });
 
- // 1) HOME ROUTE FOR COMMENTS
-app.get("/indexComments", function (request, response) {
+ /* // 1) HOME ROUTE FOR COMMENTS
+router.get("/indexComments", function (request, response) {
   const context = {
     allComments: db.Comments,
   };
   response.render("comments/indexComments", context)
-});
+}); */
 
-// 2) SHOW ROUTE RECIPES
-app.get("/recipes/:index", function (request, response) {   //un-commented out this code block to have recipe links on home page go to recipe
-  const context = {
-    Recipes: db.Recipes[request.params.index],
-  };
-  response.render("recipes/showRecipes", context);
-});
 
-// // 2) SHOW ROUTE COMMENTS
+
+/* // // 2) SHOW ROUTE COMMENTS
 app.get("/showComments/:index", function (request, response) {
   const context = {
     Comments: db.Comments[request.params.index],
   };
   response.render("comments/showComments", context);
-});
+}); */
 
 // 3) CREATE ROUTE COMMENTS
-app.get("/createComments", function(request, response){
+/* app.get("/createComments", function(request, response){
   
   response.render("comments/createComments");
 });
@@ -89,22 +86,24 @@ app.post("/createComments", function(request, respond){
   let commentBody = request.body;
   db.Comments.push(commentBody);
   respond.redirect("/");
-});
-
+}); */
+// 4) CREATE ROUTE COMMENTS
+// Moved to controller/comments.js
 
 // // 4) EDIT ROUTE COMMENTS
-/* app.get("/:index/edit", function(request, respond){
+/* app.get("/editComments", function(request, respond){
   const commentIndex = request.params.index;
-  const editComment = dbComment.find(function(singleComment){
+  const editComment = db.Comments.find(function(singleComment){
     if(singleComment.index == commentIndex){
       return singleComment;
     };
   });
   const context = {
-    com: editComment
+    Comments: editComment
   };
 
-  respond.render("/showComments/editComments", context);
+  respond.render("comments/editComments", context);
+  // respond.send("edit page");
 }); */
 
 // app.get("/showComments/:index", function(req, res){

@@ -17,12 +17,12 @@
     <ul>
         <% allRecipes.forEach((Recipes, index) => { %>
             <li>
-                <a href="/recipes/<%= index %>"> <%= Recipes.name %> </a>
-                <a href="/recipes/<%= index %>"> <%= Recipes.img %> </a>
+                <a href="/<%= index %>"> <%= Recipes.name %> </a>
+                <a href="/<%= index %>"> <%= Recipes.img %> </a>
             </li>
         <% }) %>
     </ul>
-    <a href="/indexComments">Go to Comments</a>
+    <a href="/comments/indexComments">Go to Comments</a>
     </div>
 </body>
 </html>

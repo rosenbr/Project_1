@@ -9,8 +9,47 @@ const db = require("../models");
     - Read
     - Update
     - Delete
-*/
-// TODO update url pathways when they are ready
+    */
+   // TODO update url pathways when they are ready
+
+   // 1) HOME ROUTE FOR COMMENTS
+router.get("/indexComments", function (request, response) {
+    const context = {
+      allComments: db.Comments,
+    };
+    response.render("comments/indexComments", context)
+    // response.send(context);
+  });
+  
+// 2) SHOW ROUTE COMMENTS
+router.get("/showComments/:index", function (request, response) {
+    const context = {
+      Comments: db.Comments[request.params.index],
+      index: request.params.index,
+    };
+    response.render("comments/showComments", context);
+  });
+
+// 3) CREATE ROUTE COMMENTS
+router.get("/createComments", function(request, response){
+    response.render("comments/createComments");
+  });
+
+// 4) CREATE ROUTE COMMENTS
+router.post("/createComments", function(request, respond){
+    let commentBody = request.body;
+    db.Comments.push(commentBody);
+    respond.redirect("/comments/indexComments");
+  }); 
+
+// Show Route
+/* router.get("/showComments/:index", function (request, response) {
+    const context = {
+      Comments: db.Comments[request.params.index],
+    };
+    response.render("comments/showComments", context);
+  }); */
+
 
 // Comments Index Route
 // NOTE Do we need an index of comments from the User?
@@ -25,59 +64,55 @@ const db = require("../models");
 
 
 // New Comment Route
-router.get("/", function(req, res){
-    res.render("/");
-});
+// // Show Comments Route
+// // NOTE popultaing the article page with comments?
+// router.get("/", function(req,res){
+//     db.Comments.findById(req.params.id)
+//         .populate("comments")
+//         .exec(function (err, foundComments){
+//             if(err) return res.send(err);
 
-// Show Comments Route
-// NOTE popultaing the article page with comments?
-router.get("/", function(req,res){
-    db.Comments.findById(req.params.id)
-        .populate("comments")
-        .exec(function (err, foundComments){
-            if(err) return res.send(err);
-
-            const context = {comments: foundComments};
-            return res.render("/", context);
-        });
-});
+//             const context = {comments: foundComments};
+//             return res.render("/", context);
+//         });
+// });
 
 
-// Create Comment Route
-router.post("/", function(req, res){
-    db.Comments.findById(req.params.id, function(err, foundComments){
-        if(err) return res.send(err);
+// // Create Comment Route
+// router.post("/", function(req, res){
+//     db.Comments.findById(req.params.id, function(err, foundComments){
+//         if(err) return res.send(err);
 
-        return res.redirect("/");
-    });
-});
+//         return res.redirect("/");
+//     });
+// });
 
-// Edit Comments Route (presentational)
-router.get("/", function(req, res){
-    db.Comments.findById(req.params.id, function(err, foundComments){
-        if(err) return res.send(err);
+// // Edit Comments Route (presentational)
+// router.get("/", function(req, res){
+//     db.Comments.findById(req.params.id, function(err, foundComments){
+//         if(err) return res.send(err);
 
-        const context = {comments: foundComments};
-        return res.render("/", context);
-    });
-});
+//         const context = {comments: foundComments};
+//         return res.render("/", context);
+//     });
+// });
 
-// Update Comments Route
-router.put("/", function(req, res){
-    db.Comments.findByIdAndUpdate(
-        req.params.id,
-        {
-            $set: {
-                ...req.body,
-            },
-        },
-        {new: true},
-        function(err, updateComments){
-            if(err) return res.send(err);
-            return res.redirect("/");
-        }
-    );
-});
+// // Update Comments Route
+// router.put("/", function(req, res){
+//     db.Comments.findByIdAndUpdate(
+//         req.params.id,
+//         {
+//             $set: {
+//                 ...req.body,
+//             },
+//         },
+//         {new: true},
+//         function(err, updateComments){
+//             if(err) return res.send(err);
+//             return res.redirect("/");
+//         }
+//     );
+// });
 
 // Delete Comments Route 
 
