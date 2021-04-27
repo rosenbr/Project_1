@@ -64,10 +64,11 @@ router.get("/createComments", function(request, response){
     //   }); 
 
 router.post("/createComments", function (req, res) {
-  db.Comments.create(req.body, function (err, createdComment) {
+  console.log(req.body);
+  db.Comments.create(req.body, function (err) {
     if (err) return res.send(err);
     
-    return res.redirect("showComments");
+    return res.redirect("indexComments");
   });
 });
 

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const commentsSchema = new mongoose.Schema(
     {
-        body: {type: String, required: true, min: 10, max: 140}
+        body: {type: String, required: true}        //min: 10, max: 140
     },
     {
         timestamps: true,
