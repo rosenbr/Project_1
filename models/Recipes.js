@@ -6,12 +6,7 @@ const Recipes = [
     {name: "Chili", img: "https://media.istockphoto.com/photos/mexican-carnita-street-tacos-with-beer-on-slate-table-setting-picture-id638949916?k=6&m=638949916&s=170667a&w=0&h=JbwCwWw3HR5psFf-nyIHW9pdyNiPyAaMFA4leF3KAhQ=", ingredients: "Bacon ipsum dolor amet shankle in irure ham andouille veniam. Consectetur anim chuck drumstick mollit sirloin tri-tip. Proident duis veniam id, turducken pork belly adipisicing tempor pig tri-tip consectetur aliquip labore shankle swine. Cupidatat minim commodo kielbasa kevin. Drumstick chuck in burgdoggen salami eiusmod, hamburger culpa in nostrud aute sirloin reprehenderit t-bone chicken", directions: "make the damned food already"},
 ];
 
-
-
-
-// const mongoose = require("mongoose");
-
-// const articleSchema = new mongoose (
+// const recipesSchema = new mongoose.Schema (
 //     {
 //         body: {type: String, required: true}
 //     },
@@ -20,7 +15,7 @@ const Recipes = [
 //     }
 // );
 
-// const Recipe = mongoose.model("Recipe", articleSchema);
+// const Recipes = mongoose.model("Recipe", recipesSchema);
 
 
 module.exports = Recipes;
