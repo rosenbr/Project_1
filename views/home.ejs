@@ -12,19 +12,20 @@
     <div class="container">
         <div class="row"> 
 
-            <div class="column">
+            <div class="column sidebar">
             <h2>Side Bar</h2>
             </div>
 
 
             <div class="column gallery">
-                <ul><% allRecipes.forEach((Recipes, index) => { %>
-                        <li>
-                            <a href="/recipes/showRecipes/<%= index %>"> <%= Recipes.img %> </a>
-                            <a href="/recipes/showRecipes/<%= index %>"> <%= Recipes.name %> </a>
-                        </li>
+                <% allRecipes.forEach((Recipes, index) => { %>
+                        
+                            <a class="recipe" href="/recipes/showRecipes/<%= index %>"> 
+                                <img src="<%= Recipes.img %>">
+                                <p><%= Recipes.name %></p>
+                            </a>
                     <% }) %>
-                </ul>
+                
                     <a href="/comments/indexComments">Go to Comments</a>
             
             </div>
