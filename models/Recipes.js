@@ -23,6 +23,7 @@ const Recipes = [
 // const recipesSchema = new mongoose.Schema (
 //     {
 //         body: {type: String, required: true}
+            // img: String,
 //     },
 //     {
 //         timmestamps: true,
