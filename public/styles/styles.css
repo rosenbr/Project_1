@@ -23,6 +23,7 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
+    margin-left: auto;
 }
 
 .gallery .recipe {
@@ -154,6 +155,25 @@ hr {
 }
 
 /* SIDE NAV BAR */
+.main-navigation {
+    position: relative;
+    width: 216px;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    background-color: #fff;
+    box-sizing: border-box;
+    z-index: 5005;
+    transition: all 600ms ease;
+   
+
+}
+.main-navigation:hover {
+transition: .3s ease-in;
+}
+
 
 /* FORMS */
 form {
