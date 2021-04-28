@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Recipe</title>
 </head>
 <body>
-    <p><%= Recipes.name %> </p>
-    <p><%= Recipes.img %> </p>
-    <p>Ingredients: <%= Recipes.ingredients %></p>
-    <p>Directions: <%= Recipes.directions %></p>
+    <section class="recipe__showPage">
+        <p class="recipe__name"><%= Recipes.name %></p>
+        <img src="<%= Recipes.img %>" class="recipe__imagePage">
+        <p>Ingredients: <%= Recipes.ingredients %></p>
+        <p>Directions: <%= Recipes.directions %></p>
+    </section>
     <a href="/">Home!</a>
 </body>
 </html>
