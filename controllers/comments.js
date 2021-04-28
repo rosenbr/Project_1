@@ -71,7 +71,7 @@ router.put("/editComments/:id", function (req, res) {
 		{ new: true },
 		function (err, updatedComments) {
 			if (err) return res.send(err);
-			return res.redirect("comments/indexComments/:id");
+			return res.redirect("comments/indexComments");
 		}
 	);
 });
