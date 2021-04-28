@@ -60,30 +60,30 @@ router.get("/editComments/:id", function(req, res){
 });
 
 // Update Route (Functional)
-// router.put("/editComments/:id", function (req, res) {
-// 	db.Comments.findByIdAndUpdate(
-// 		req.params.id,
-// 		{
-// 			$set: {
-// 				...req.body,
-// 			},
-// 		},
-// 		{ new: true },
-// 		function (err, updatedComments) {
-// 			if (err) return res.send(err);
-// 			return res.redirect(`/comments/${updatedComment._id}`);
-// 		}
-// 	);
-// });
+router.put("/editComments/:id", function (req, res) {
+	db.Comments.findByIdAndUpdate(
+		req.params.id,
+		{
+			$set: {
+        body: req.body
+			},
+		},
+		{ new: true },
+		function (err, updatedComments) {
+			if (err) return res.send(err);
+			return res.redirect("comments/indexComments/:id");
+		}
+	);
+});
 
 // Delete Route (Functional)
-// router.delete("/showComments/:id", function (req, res) {
-// 	db.Comments.findByIdAndDelete(req.params.id, function (err, deletedComment) {
-// 		if (err) return res.send(err);
+router.delete("/showComments/:id", function (req, res) {
+	db.Comments.findByIdAndDelete(req.params.id, function (err, deletedComment) {
+		if (err) return res.send(err);
 
-// 		return res.redirect("/showComments");
-// 	});
-// });
+		return res.redirect("/showComments");
+	});
+});
 
 // == Start of non mongoose == //
 // router.get("/editComments", function(request, response){
