@@ -35,7 +35,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/images"));
 
 // * === Controllers === * //
-app.use("/usersAuth", controllers.usersAuth);
+app.use("/", controllers.usersAuth);
 app.use("/recipes", controllers.recipes);
 app.use("/comments", controllers.comments);
 
