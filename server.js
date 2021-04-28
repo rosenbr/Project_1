@@ -6,6 +6,7 @@ const app = express();
 const PORT = 4000;
 const methodOverride = require("method-override");
 app.set("view engine", "ejs");
+require("dotenv").config();
 // const { response } = require("express");
 const router = express.Router();
 const session = require("express-session");
@@ -17,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 // json express.json()
 app.use(methodOverride("_method"));
 app.use(session({
-  store: MongoStore.create({mongoUrl: "mongodb://localhost:27017/blogdb"}),
+  store: MongoStore.create({mongoUrl: process.env.MONGODB_URI}),
   secret: "super secret cookie key",
   resave: false,
   saveUninitialized: false,
