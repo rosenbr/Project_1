@@ -156,7 +156,7 @@ hr {
 
 /* SIDE NAV BAR */
 .main-navigation {
-    position: relative;
+    position: fixed;
     width: 216px;
     height: 100vh;
     overflow: hidden;
