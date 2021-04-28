@@ -34,13 +34,17 @@ h2 {
 
 p {
     font-family: 'Roboto', sans-serif;
+    text-decoration: bold;
 }
 
 .gallery p {
     color: rgb(39, 39, 39);
 }
 
-p .recipe:hover {
+.recipe {
+    margin: 5px;
+}
+.recipe:hover {
     color: rgb(58, 150, 145);
     text-decoration: none;
 }
