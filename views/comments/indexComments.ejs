@@ -11,18 +11,37 @@
     <title>Comments</title>
 </head>
 <body>
-    <h1>Comments Index</h1>
-    <ul>
-        <% Comments.forEach((Comments, index) => { %>
-            <li>
-              <a href="/comments/showComments/<%= Comments.id %>"<%= Comments.user %></a>
-              <p><%= Comments.name %></p>
-              <p><%= Comments.body %> </p> 
-              <p><%= Comments.timestamps %></p>
-            </li>
-            <% }); %>
-            <a href="/comments/createComments">Add Comment</a>
-            <a class="home__button" href="/"><button>Home</button></a>
-    </ul>
+    <div class="main-navigation">
+
+        <div class="navbar">
+            <h2>Chefly</h2>
+            <button class="sidebar__items">Signup/Log-in</button>
+            <a class="home__button" href="/">Home</a>
+        </br>
+            <a href="">Search</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row comments__index">
+                <section class="col comments__indexPage">
+                    <h1>Comments Index</h1>
+                    <ul>
+                        <% Comments.forEach((Comments, index) => { %>
+                            <li>
+                              <a href="/comments/showComments/<%= Comments.id %>"<%= Comments.user %></a>
+                              <p><%= Comments.name %></p>
+                              <p><%= Comments.body %> </p> 
+                              <p><%= Comments.timestamps %></p>
+                            </li>
+                            <% }); %>
+                            <a href="/comments/createComments">Add Comment</a>
+                            <a class="home__button" href="/"><button>Home</button></a>
+                    </ul> 
+                </section> 
+        </div>
+    </div>
+
+   
 </body>
 </html>

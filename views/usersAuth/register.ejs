@@ -7,21 +7,34 @@
     <title>Sign Up</title>
 </head>
 <body>
-    <h1>Sign Up</h1>
-<!-- does not like me -->
-    <form action="/register" method="POST">
-        <p>
-            <input type="text" name="name" placeholder="User Name" required minlength="3" required maxlength="16">
-        </p>
-        <p>
-            <input type="email" name="email" placeholder="Email" required>
-        </p>
-        <p>
-            <input type="password" name="password" placeholder="Password" required minlength="8" >
-        </p>
-        <p>
-            <input type="submit" value="Register">
-        </p>
-    </form>
+
+    <div class="main-navigation">
+                <div class="navbar">
+                    <h2>Chefly</h2>
+                    <a class="home__button" href="/">Home</a>
+                    <a class="sidebar__items" href="/login">Login"</a>
+                    <a class="sidebar__items" href="/register">Signup"</a>
+                    <a href="/comments/indexComments">Go to Comments</a>
+                </div>
+            </div>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <!-- does not like me -->
+            <form action="/register" method="POST">
+                <p>
+                    <input type="text" name="name" placeholder="User Name" required minlength="3" required maxlength="16">
+                </p>
+                <p>
+                    <input type="email" name="email" placeholder="Email" required>
+                </p>
+                <p>
+                    <input type="password" name="password" placeholder="Password" required minlength="8" >
+                </p>
+                <p>
+                    <input type="submit" value="Register">
+                </p>
+            </form>
+    </div>
+   
 </body>
 </html>
