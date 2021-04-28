@@ -67,11 +67,13 @@ app.use("/comments", controllers.comments);
 // CRUD 
 
 // 1) HOME ROUTE FOR RECIPES
-app.get("/", function (request, response) {
-  const context = {
-    allRecipes: db.Recipes,
-  };
-  response.render("home", context);
+app.get("/", function (req, res) {
+  db.Recipes.find({}, function(err, foundRecipes){
+    if (err) return res.send(err);
+
+    const context = {allRecipes: foundRecipes};
+    res.render("home", context);
+  });
 });
 
 // * ===== Server Bind ==== *//
