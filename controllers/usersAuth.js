@@ -1,10 +1,15 @@
-// const express = require("express");
+const express = require("express");
 
-// const router = express.Router();
-
-// module.exports = router;
+const router = express.Router();
 
 const db = require("../models");
+
+router.get("/login", function (req, res){
+    res.send("login page");
+    // res.render("/login");
+});
+
+
 
 /* // TODO update url's in router.get when views is updated
 // New User route
@@ -35,5 +40,5 @@ router.post("/", function(req, res){
 
 // module.exports = router;
 
-// module.exports = router;
+module.exports = router;
 
