@@ -15,7 +15,7 @@
     <p>Comment: <%= Comments.body %> </p>
     <p><%= Comments.timestamps %></p>
     <!-- broken line, "Cannot PUT"-->
-    <form action="/comments/indexComments/<%= Comments.index %>?_method=PUT" method="POST"><input type="text" name="comment" placehold="comment">
+    <form action="/comments/indexComments/<%= Comments.id %>?_method=PUT" method="POST"><input type="text" name="comment" placehold="comment">
         <input type="submit">
     </form>
     <button>Edit</button>

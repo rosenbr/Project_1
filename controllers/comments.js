@@ -1,5 +1,6 @@
 // const { response } = require("express");
 const express = require("express");
+const { Comments } = require("../models");
 
 const router = express.Router();
 
@@ -49,8 +50,13 @@ router.post("/createComments", function (req, res) {
 });
 
 // // Edit Comments Route (presentational)
-router.get("/editComments", function(req, res){
-  res.render("comments/editComments");
+router.get("/editComments/:id", function(req, res){
+  db.Comments.findById(req.params.id, function (err, foundComment) { //
+    if (err) return res.send(err);
+
+    const context = { Comments: foundComment };
+  res.render("comments/editComments", context);
+  });
 });
 
 // Update Route (Functional)

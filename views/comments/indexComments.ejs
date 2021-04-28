@@ -13,7 +13,7 @@
     <ul>
         <% Comments.forEach((Comments, index) => { %>
             <li>
-              <a href="/comments/showComments/<%= index %>"<%= Comments.user %></a>
+              <a href="/comments/showComments/<%= Comments.id %>"<%= Comments.user %></a>
               <p><%= Comments.name %></p>
               <p><%= Comments.body %> </p> 
               <p><%= Comments.timestamps %></p>
