@@ -11,13 +11,16 @@
     <title>Recipe</title>
 </head>
 <body>
+    <a class="home__button" href="/"><button>Home</button></a>
     <section class="recipe__showPage">
         <p class="recipe__name"><%= Recipes.name %></p>
         <img src="<%= Recipes.img %>" class="recipe__imagePage">
-        <p>Ingredients: <%= Recipes.ingredients %></p>
-        <p>Directions: <%= Recipes.directions %></p>
+        <hr>
+        <h1 class="descriptions">Description<p class="descriptions__descriptions"><%= Recipes.descriptions %></p></h1>
+        <h1 class="ingredients">Ingredients<p class="ingredients__ingredients"><%= Recipes.ingredients %></p></h1>
+        <h1 class="directions">Directions<p class="directions__directions"> <%= Recipes.directions %></p><h1>
     </section>
-    <a href="/">Home!</a>
+    
 
 </body>
 </html>
