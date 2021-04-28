@@ -8,18 +8,34 @@ const methodOverride = require("method-override");
 app.set("view engine", "ejs");
 // const { response } = require("express");
 const router = express.Router();
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 
 // * ===== Middleware ===== * //
 app.use(express.urlencoded({ extended: true }));
 // json express.json()
 app.use(methodOverride("_method"));
+app.use(session({
+  store: MongoStore.create({mongoUrl: "mongodb://localhost:27017/blogdb"}),
+  secret: "super secret cookie key",
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7
+  }
+}));
+app.use(function(req, res, next){
+  console.log(`${req.method} - ${req.url}`);
+  next();
+});
 
 // * ===== Serve Images and Public Folders ==== * ///
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/images"));
 
 // * === Controllers === * //
+app.use("/", controllers.usersAuth);
 app.use("/recipes", controllers.recipes);
 app.use("/comments", controllers.comments);
 

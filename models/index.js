@@ -25,5 +25,5 @@ mongoose
     module.exports = {
         Recipes: require("./Recipes"),
         User: require("./User"),
-        Comments: require("./Comments"), //uncommented out this line to get the comments link to take user to comments
+        Comments: require("./Comments"), 
     };
