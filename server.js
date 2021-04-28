@@ -48,9 +48,6 @@ app.use("/comments", controllers.comments);
 
 
 // CRUD 
-// 1) presentational
-// 2) show
- // * === RECIPE ROUTES === * //
 
 // 1) HOME ROUTE FOR RECIPES
 app.get("/", function (request, response) {
@@ -59,68 +56,6 @@ app.get("/", function (request, response) {
   };
   response.render("home", context);
 });
-
- /* // 1) HOME ROUTE FOR COMMENTS
-router.get("/indexComments", function (request, response) {
-  const context = {
-    allComments: db.Comments,
-  };
-  response.render("comments/indexComments", context)
-}); */
-
-
-
-/* // // 2) SHOW ROUTE COMMENTS
-app.get("/showComments/:index", function (request, response) {
-  const context = {
-    Comments: db.Comments[request.params.index],
-  };
-  response.render("comments/showComments", context);
-}); */
-
-// 3) CREATE ROUTE COMMENTS
-/* app.get("/createComments", function(request, response){
-  
-  response.render("comments/createComments");
-});
-// 4) CREATE ROUTE COMMENTS
-app.post("/createComments", function(request, respond){
-  let commentBody = request.body;
-  db.Comments.push(commentBody);
-  respond.redirect("/");
-}); */
-// 4) CREATE ROUTE COMMENTS
-// Moved to controller/comments.js
-
-// // 4) EDIT ROUTE COMMENTS
-/* app.get("/editComments", function(request, respond){
-  const commentIndex = request.params.index;
-  const editComment = db.Comments.find(function(singleComment){
-    if(singleComment.index == commentIndex){
-      return singleComment;
-    };
-  });
-  const context = {
-    Comments: editComment
-  };
-
-  respond.render("comments/editComments", context);
-  // respond.send("edit page");
-}); */
-
-// app.get("/showComments/:index", function(req, res){
-// //   db.Comments.find({}, function (err, allComments){
-// //       if (err) return res.send(err);
-
-// //       const context = {comments: allComments};
-// //       return res.render("/", context);
-// //   });
-// // });
-// const context = {
-//   Comments: db.Comments[request.params.index],
-// };
-// response.render("comments/showComments", context);
-// });
 
 // * ===== Server Bind ==== *//
 app.listen(PORT, function () {

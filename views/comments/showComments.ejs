@@ -11,10 +11,14 @@
     <title>Comment</title>
 </head>
 <body>
-    <p><%= Comments.user %> </p>
-    <p><%= Comments.body %> </p>
-    <a href="/comments/editComments/<%= Comments.index %>">Edit</a>
-    <button>Delete</button>
+    <p><%= Comments.name %></p>
+    <p><%= Comments.body %> </p> 
+    <p><%= Comments.timestamps %></p>
+    <a href="/comments/editComments/<%= Comments.id %>">Edit</a>
+    <!-- NOTE broken line for Delete, error: Cannot DELETE -->
+    <form action="/comments/indexComments<%= Comments.id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Comment" />
+    </form>
     <a href="/">Home!</a>
 </body>
 </html>
