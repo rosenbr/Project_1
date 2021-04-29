@@ -1,27 +1,9 @@
-// const { response } = require("express");
 const express = require("express");
 const { Comments } = require("../models");
 
 const router = express.Router();
 
 const db = require("../models");
-
-/* TODO
-    - Create √
-    - Read
-    - Update
-    - Delete
-    */
-
-// Index Route
-// router.get("/indexComments", function(req, res){
-//   db.Comments.find({}, function(err, foundComments){
-//     if (err) return res.send(err);
-
-//     const context = {Comments: foundComments};
-    // res.render("comments/indexComments", context);
-//   });
-// });
 
 // Show Route
 router.get("/showComments/:id", function (req, res) {
@@ -32,12 +14,6 @@ router.get("/showComments/:id", function (req, res) {
     res.render("recipes/showRecipes", context);
   });
 });
-
-
-// // 3) CREATE ROUTE COMMENTS (Presentational)
-// router.get("/createComments", function(req, res){
-//       res.render("recipes/showRecipes");
-//     });
   
 //3) CREATE ROUTE COMMENTS (Functional)
 router.post("/createComments/:id", function (req, res) {

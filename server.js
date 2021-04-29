@@ -40,20 +40,6 @@ app.use("/", controllers.usersAuth);
 app.use("/recipes", controllers.recipes);
 app.use("/comments", controllers.comments);
 
-// * =====  Routes ===== * //
-// app.use("/home", express.static("/public"));
-
-// look for ?_method=TYPE change the TYPE to what you need
-
-/* =====  Controllers ===== */
-// 
-// CHANGE///////////////////////////////////
-// app.use("/fruits", controllers.fruits);
-// app.use("/recipes", controllers.recipes);
-// app.use("/comments", controllers.comments);
-// app.use("/users", controllers.users);
-/* =====  Routes ===== */
-
 /* 
   Requests Methods
     GET - get data
@@ -62,9 +48,6 @@ app.use("/comments", controllers.comments);
     PATCH - update data of a specific value -> body data and target
     DELETE - delete/destroy -> target
 */
-
-
-// CRUD 
 
 // 1) HOME ROUTE FOR RECIPES
 app.get("/", function (req, res) {

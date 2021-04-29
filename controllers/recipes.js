@@ -4,6 +4,30 @@ const router = express.Router();
 
 const db = require("../models");
 
+// Index Route
+router.get("/recipes/indexRecipes", async function (req, res) {
+	
+  try {
+    const query = req.query.name
+      ? {
+          name: { $regex: req.query.name, $options: "i" },
+          user: req.session.currentUser.id,
+        }
+      : {
+          user: req.session.currentUser.id,
+        };
+    // const query = {name: { $regex: req.query.name, $options: "i"} };
+
+    const allRecipes = await db.Recipes.find(query);
+    const context = { Recipes: allRecipes };
+
+    return res.render("/recipes/indexRecipes/:id", context);
+  } catch (err) {
+    console.log(err);
+    return res.send(err);
+  }
+});
+
 // Show Route
 router.get("/showRecipes/:id", function (req, res) {
   db.Recipes.findById(req.params.id)
@@ -16,32 +40,4 @@ router.get("/showRecipes/:id", function (req, res) {
   });
 });
 
-  // Edit
-// router.put("/editComments/:id", function (req, res) {
-// 	db.Comments.findByIdAndUpdate(
-// 		req.params.id,
-// 		{
-// 			$set: {
-//         body: req.body.body
-// 			},
-// 		},
-// 		{ new: true },
-// 		function (err, updatedComments) {
-// 			if (err) return res.send(err);
-// 			return res.redirect("../indexComments");
-// 		}
-// 	);
-// });
-
-  // Delete use .pull instead of .push
-// router.delete("/showRecipes/:id", function (req, res) {
-// 	db.Comments.findByIdAndDelete(req.params.id, function (err, deletedComment) {
-// 		if (err) return res.send(err);
-
-// db.Recipes.findById(deletedComment.recipe)
-
-// 		return res.redirect("../indexComments");
-// 	});
-// });
-  
 module.exports = router;
