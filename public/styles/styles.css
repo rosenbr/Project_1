@@ -32,6 +32,29 @@ h2 {
 transition: .3s ease-in;
 }
 
+.home__button {
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    color: rgb(250, 250, 250);
+    background-color: rgb(58, 150, 145);
+    border-radius: 20px;
+}
+.login__button {
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    color: rgb(250, 250, 250);
+    background-color: rgb(58, 150, 145);
+    border-radius: 20px;
+}
+.signup__button {
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    color: rgb(250, 250, 250);
+    background-color: rgb(58, 150, 145);
+    border-radius: 20px;
+}
+
+
 /* RECIPE GALLERY */
 .gallery {
     display: flex;
@@ -97,11 +120,7 @@ p {
     text-decoration: bold;
 }
 
-a {
-    color: rgb(250, 250, 250);
-    background-color: rgb(58, 150, 145);
-    border-radius: 20px;
-}
+
 
 hr {
     display: block;
@@ -153,7 +172,11 @@ hr {
     line-height: 30px;
 }
 
-/* Comments Index Page
+/* Comments On Recipe Page */
+ul {
+    color: rgb(76, 76, 76);
+    margin: 200px 200px 200px 200px;
+}
 
 /* FORMS */
 form {

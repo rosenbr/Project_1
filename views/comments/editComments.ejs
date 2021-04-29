@@ -16,14 +16,14 @@
     <p>User: <%= Comments.name %> </p>
     <p>Comment: <%= Comments.body %> </p>
     <p><%= Comments.timestamps %></p>
+    <!-- NOTE broken line, "Cannot PUT"-->
     <form action="/comments/editComments/<%= Comments.id %>?_method=PUT" method="POST">
         <input type="text" name="body" placehold="comment">
         <input type="submit">
     </form>
     <button>Edit</button>
     <button>Delete</button>
-    <a class="home__button" href="/"><button>Home</button></a>
-
+    <a href="/">Home!</a>
 
 </body>
 </html>
