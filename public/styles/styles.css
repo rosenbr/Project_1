@@ -12,11 +12,25 @@ h2 {
     font-family: 'Lobster Two', cursive;
     font-size: 40px;
 }
+/* SIDE NAV BAR */
+.main-navigation {
+    position: fixed;
+    width: 216px;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    background-color: #fff;
+    box-sizing: border-box;
+    z-index: 5005;
+    transition: all 600ms ease;
+   
 
- 
-
-
-/* PUT NAV BAR STUFF HERE UNDER MAIN ELEMENTS */
+}
+.main-navigation:hover {
+transition: .3s ease-in;
+}
 
 /* RECIPE GALLERY */
 .gallery {
@@ -83,7 +97,7 @@ p {
     text-decoration: bold;
 }
 
-button {
+a {
     color: rgb(250, 250, 250);
     background-color: rgb(58, 150, 145);
     border-radius: 20px;
@@ -139,41 +153,7 @@ hr {
     line-height: 30px;
 }
 
-
-
-
-@media screen and (max-width: 600px) {
-    .gallery .recipe {
-        width:50%;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .gallery .recipe {
-        width:100%;
-    }
-}
-
-/* SIDE NAV BAR */
-.main-navigation {
-    position: fixed;
-    width: 216px;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-shrink: 0;
-    flex-direction: column;
-    background-color: #fff;
-    box-sizing: border-box;
-    z-index: 5005;
-    transition: all 600ms ease;
-   
-
-}
-.main-navigation:hover {
-transition: .3s ease-in;
-}
-
+/* Comments Index Page
 
 /* FORMS */
 form {
@@ -212,6 +192,18 @@ input[text="submit"] {
     background-color: red;
     border-radius: 0 15px 15px 0;
     flex: 1;
+}
+
+@media screen and (max-width: 600px) {
+    .gallery .recipe {
+        width:50%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .gallery .recipe {
+        width:100%;
+    }
 }
 
 
