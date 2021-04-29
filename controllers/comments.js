@@ -66,29 +66,29 @@ router.post("/createComments/:id", function (req, res) {
 // });
 
 // // Update Route (Functional)
-// router.put("/editComments/:id", function (req, res) {
-// 	db.Comments.findByIdAndUpdate(
-// 		req.params.id,
-// 		{
-// 			$set: {
-//         body: req.body.body
-// 			},
-// 		},
-// 		{ new: true },
-// 		function (err, updatedComments) {
-// 			if (err) return res.send(err);
-// 			return res.redirect("../indexComments");
-// 		}
-// 	);
-// });
+router.put("/editComments/:id/:recipeId", function (req, res) {
+	db.Comments.findByIdAndUpdate(
+		req.params.id,
+		{
+			$set: {
+        body: req.body.body
+			},
+		},
+		{ new: true },
+		function (err, updatedComments) {
+			if (err) return res.send(err);
+			return res.redirect(`/recipes/showRecipes/${req.params.recipeId}#comments`);
+		}
+	);
+});
 
 // // Delete Route (Functional)
-// router.delete("/showComments/:id", function (req, res) {
-// 	db.Comments.findByIdAndDelete(req.params.id, function (err) {
-// 		if (err) return res.send(err);
+router.delete("/showComments/:id/:recipeId", function (req, res) {
+	db.Comments.findByIdAndDelete(req.params.id, function (err, deletedComment) {
+		if (err) return res.send(err);
 
-// 		return res.redirect("../indexComments");
-// 	});
-// });
+    return res.redirect(`/recipes/showRecipes/${req.params.recipeId}#comments`);
+	});
+});
 
 module.exports = router;

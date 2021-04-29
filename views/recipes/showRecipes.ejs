@@ -56,10 +56,13 @@
         <input type="text" name="body" placeholder="name">
         <input type="submit">
     </form>
-   <ul>
-       <% Recipes.comments.forEach(comments => { %>
+   <ul id="comments">
+       <% Recipes.comments.forEach(comment => { %>
        <li>
-            <%= comments.body %>
+            <%= comment.body %>
+            <form action="/comments/showComments/<%= comment._id %>/<%= Recipes.id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete Comment" />
+            </form>
        </li>
             <% }) %>
    </ul>
