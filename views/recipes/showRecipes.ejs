@@ -65,13 +65,15 @@
         <div>
             <p><%= comment.body %> </p> 
             <p><%= comment.timestamps %></p>
-
-            <form action="/comments/showComments/<%= comment._id %>/<%= Recipes.id %>?_method=PUT" method="POST">
+        </div>
+    
+            <form class="edit" action="/comments/showComments/<%= comment._id %>/<%= Recipes.id %>?_method=PUT" method="POST">
                 <input type="text" name="body" placeholder="Edit Comment Here">
                 <input type="submit" value="Edit Comment" />
             </form>
+       
 
-            <form action="/comments/showComments/<%= comment._id %>/<%= Recipes.id %>?_method=DELETE" method="POST">
+            <form class="delete" action="/comments/showComments/<%= comment._id %>/<%= Recipes.id %>?_method=DELETE" method="POST">
                 <input type="submit" value="Delete Comment" />
             </form>
         </div>
