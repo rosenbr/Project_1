@@ -50,23 +50,13 @@ router.post("/createComments/:id", function (req, res) {
 		  foundRecipes.comments.push(createdComments);
 		  foundRecipes.save();
     
-      return res.redirect(`/recipes/showRecipes/${req.params.id}`);
+      return res.redirect(`/recipes/showRecipes/${req.params.id}#comments`);
     });
   });
 });
 
-// // // Edit Comments Route (presentational)
-// router.get("/editComments/:id", function(req, res){
-//   db.Comments.findById(req.params.id, function (err, foundComment) { //
-//     if (err) return res.send(err);
-
-//     const context = { Comments: foundComment };
-//   res.render("comments/editComments", context);
-//   });
-// });
-
 // // Update Route (Functional)
-router.put("/editComments/:id/:recipeId", function (req, res) {
+router.put("/showComments/:id/:recipeId", function (req, res) {
 	db.Comments.findByIdAndUpdate(
 		req.params.id,
 		{

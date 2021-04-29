@@ -53,17 +53,22 @@
     </div>
 
     <form action="/comments/createComments/<%= Recipes.id %>" method="POST">
-        <input type="text" name="body" placeholder="name">
-        <input type="submit">
+        <input type="text" name="body" placeholder="Comment">
+        <input type="submit" value="Comment">
     </form>
    <ul id="comments">
        <% Recipes.comments.forEach(comment => { %>
        <li>
             <%= comment.body %>
+            <form action="/comments/showComments/<%= comment._id %>/<%= Recipes.id %>?_method=PUT" method="POST">
+                <input type="text" name="body" placeholder="Edit Comment Here">
+                <input type="submit" value="Edit Comment">
+            </form>
             <form action="/comments/showComments/<%= comment._id %>/<%= Recipes.id %>?_method=DELETE" method="POST">
                 <input type="submit" value="Delete Comment" />
             </form>
        </li>
+       <% }) %>
    </ul>
     <p><%= Recipes.comments.name %></p>
     <p><%= Recipes.comments.body %> </p> 
