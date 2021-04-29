@@ -171,9 +171,11 @@ p {
 }
 
 /* Comments On Recipe Page */
-ul {
+
+.comments {
     color: rgb(76, 76, 76);
-    margin: 20px 200px 200px 360px;
+    width: 50vw;
+    margin-left: auto;
 }
 
 /* FORMS */

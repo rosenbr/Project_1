@@ -56,16 +56,16 @@
         <input type="text" name="body" placeholder="name">
         <input type="submit">
     </form>
-   <ul>
-       <li>
-           <% Recipes.comments.forEach(comments => { %>
-                <%= comments.body %>
-           <% }) %>
-       </li>
-   </ul>
-    <p><%= Recipes.comments.name %></p>
-    <p><%= Recipes.comments.body %> </p> 
-    <p><%= Recipes.comments.timestamps %></p>
-
+    <section class="comments"> 
+        
+        <% Recipes.comments.forEach(comment => { %>
+        <div><p><%= comment.name %></p>
+            <p><%= comment.body %> </p> 
+            <p><%= comment.timestamps %></p>
+        </div>
+   <% }) %>
+</section>
+  
+        
 </body>
 </html>
