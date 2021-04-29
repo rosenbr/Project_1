@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col-10 gallery">
                 <% allRecipes.forEach((Recipes, index) => { %>
-                            <a class="recipe" href="/recipes/showRecipes/<%= index %>"> 
+                            <a class="recipe" href="/recipes/showRecipes/<%= Recipes.id %>"> 
                                 <img src="<%= Recipes.img %>">
                                 <p class="recipe"><%= Recipes.name %></p>
                             </a>

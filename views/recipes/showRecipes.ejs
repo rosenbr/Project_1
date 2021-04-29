@@ -51,13 +51,16 @@
         </div>
     </div>
 
-    <form action="/comments/createComments" method="POST">
-        <input type="text" name="body" placeholder="comment">
-    <input type="submit">
+    <form action="/comments/createComments/<%= Recipes.id %>" method="POST">
+        <input type="text" name="body" placeholder="name">
     </form>
-
-    
-    
+   <ul>
+       <li>
+           <% Recipes.comments.forEach(comments => { %>
+                <%= comments.body %>
+           <% }) %>
+       </li>
+   </ul>
 
 </body>
 </html>
