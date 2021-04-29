@@ -19,7 +19,7 @@
                 <h2>Chefly</h2>
                 <a class="home__button" href="/">Home</a>
                 <a class="login__button" href="/login">Login</a>
-                <a class="signup__button" href="/register">Signup</a>
+                <a class="signup__items" href="/register">Signup</a>
             </div>
         </div>
     
@@ -57,11 +57,11 @@
         <input type="submit">
     </form>
    <ul>
-       <% Recipes.comments.forEach(comments => { %>
        <li>
-            <%= comments.body %>
+           <% Recipes.comments.forEach(comments => { %>
+                <%= comments.body %>
+           <% }) %>
        </li>
-            <% }) %>
    </ul>
     <p><%= Recipes.comments.name %></p>
     <p><%= Recipes.comments.body %> </p> 
