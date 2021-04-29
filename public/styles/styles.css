@@ -120,9 +120,7 @@ p {
     text-decoration: bold;
 }
 
-
-
-hr {
+/* hr {
     display: block;
     unicode-bidi: isolate;
     margin-block-start: 0.5em;
@@ -132,7 +130,7 @@ hr {
     overflow: hidden;
     border-style: inset;
     border-width: 1px;
-}
+} */
 
 .recipe__bottom {
     padding: 10px 0px 60px 150px;
@@ -175,7 +173,7 @@ hr {
 /* Comments On Recipe Page */
 ul {
     color: rgb(76, 76, 76);
-    margin: 200px 200px 200px 200px;
+    margin: 20px 200px 200px 360px;
 }
 
 /* FORMS */
