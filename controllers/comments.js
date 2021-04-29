@@ -50,12 +50,13 @@ router.post("/createComments/:id", function (req, res) {
 		  foundRecipes.comments.push(createdComments);
 		  foundRecipes.save();
     
-      return res.redirect(`/recipes/showRecipes/${req.params.id}`);
+      return res.redirect(`/recipes/showRecipes/${req.params.id}#comments`);
     });
   });
 });
 
-// Edit Route (Functional)
+
+// // Update Route (Functional)
 router.put("/showComments/:id/:recipeId", function (req, res) {
 	db.Comments.findByIdAndUpdate(
 		req.params.id,
