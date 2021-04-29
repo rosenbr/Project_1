@@ -57,11 +57,11 @@
         <input type="submit">
     </form>
    <ul>
+       <% Recipes.comments.forEach(comments => { %>
        <li>
-           <% Recipes.comments.forEach(comments => { %>
-                <%= comments.body %>
-           <% }) %>
+            <%= comments.body %>
        </li>
+            <% }) %>
    </ul>
     <p><%= Recipes.comments.name %></p>
     <p><%= Recipes.comments.body %> </p> 
