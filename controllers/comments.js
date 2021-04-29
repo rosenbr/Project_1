@@ -50,7 +50,7 @@ router.post("/createComments/:id", function (req, res) {
 		  foundRecipes.comments.push(createdComments);
 		  foundRecipes.save();
     
-      return res.redirect(`/recipes/showRecipes/${req.params.id}`);
+      return res.redirect(`/recipes/showRecipes/${req.params.id}#comments`);
     });
   });
 });

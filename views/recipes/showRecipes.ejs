@@ -61,7 +61,7 @@
        <li>
             <%= comment.body %>
             <form action="/comments/showComments/<%= comment._id %>/<%= Recipes.id %>?_method=PUT" method="POST">
-                <input type="text" name="body" placehold="comment">
+                <input type="text" name="body" placeholder="Edit Comment Here">
                 <input type="submit" value="Edit Comment">
             </form>
             <form action="/comments/showComments/<%= comment._id %>/<%= Recipes.id %>?_method=DELETE" method="POST">
