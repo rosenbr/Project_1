@@ -5,7 +5,7 @@ const router = express.Router();
 const db = require("../models");
 
 // Index Route
-router.get("/recipes/indexRecipes", async function (req, res) {
+router.get("/recipes/indexRecipes/:id", async function (req, res) {
 	
   try {
     const query = req.query.name
