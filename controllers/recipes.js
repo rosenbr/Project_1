@@ -5,15 +5,20 @@ const router = express.Router();
 const db = require("../models");
 
 // Show Route
-router.get("/showRecipes/:index", function (request, response) {
-    const context = {
-      Recipes: db.Recipes[request.params.index],
-      index: request.params.index,
-    };
-    response.render("recipes/showRecipes", context);
-    // response.send(context);
+router.get("/showRecipes/:id", function (req, res) {
+  db.Recipes.findById(req.params.id)
+    .populate("comments")
+    .exec(function(err, foundRecipes){
+      if (err) return res.send(err);
+
+      const context = {Recipes: foundRecipes};
+    res.render("recipes/showRecipes", context);
   });
+});
 
-  
+  // Edit
 
+  // Delete use .pull instead of .push
+
+  // 
 module.exports = router;

@@ -40,12 +40,18 @@ router.get("/createComments", function(req, res){
     });
   
 // 3) CREATE ROUTE COMMENTS (Functional)
-router.post("/createComments", function (req, res) {
-  console.log(req.body);
-  db.Comments.create(req.body, function (err) {
+router.post("/createComments/:id", function (req, res) {
+  db.Comments.create(req.body, function (err, createdComments) {
     if (err) return res.send(err);
+
+      db.Recipes.findById(req.params.id).exec(function (err, foundRecipes) {
+			  if (err) return res.send(err);
+
+		  foundRecipes.comments.push(createdComments);
+		  foundRecipes.save();
     
-    return res.redirect("indexComments");
+      return res.redirect(`/recipes/showRecipes/${req.params.id}`);
+    });
   });
 });
 

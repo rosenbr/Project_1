@@ -25,10 +25,10 @@ const recipesSchema = new mongoose.Schema (
     {
         name: {type: String, required: true},
         img: {type: String, required: true},
-        description: {type: String, required: true},
+        descriptions: {type: String, required: true},
         ingredients: {type: String, required: true},
         directions: {type: String, required: true},
-        comments: [{type: mongoose.Schema.Types.ObjectId, ref: "Comment"}]
+        comments: [{type: mongoose.Schema.Types.ObjectId, ref: "Comments"}]
     },
     {
         timestamps: true,
