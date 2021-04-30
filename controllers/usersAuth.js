@@ -11,7 +11,7 @@ router.get("/register", function(req, res){
 
 router.post("/register", async function(req, res){
     try {
-    const foundUser = await db.User.findOne({email: req.body.email});
+    const foundUser = await db.User.findOne({email: req.body.email}); //check out or operator
       if (foundUser){
         return res.redirect("/login");
     }
