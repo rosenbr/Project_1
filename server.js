@@ -56,13 +56,11 @@ app.get("/", function (req, res) {
           $or: [{name: { $regex: req.query.search, $options: "i" }}, {ingredients: { $regex: req.query.search, $options: "i" }}],
         }
       : {
-        }; 
-    
+        };  
 let header = "Trending Recipes";
 if (req.query.search) {
   header = "Search Results";
 }
-
   db.Recipes.find(query, function(err, foundRecipes){
     if (err) return res.send(err);
 
