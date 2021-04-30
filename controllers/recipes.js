@@ -25,6 +25,7 @@ router.get("/indexRecipes", function (req, res){
         }
       : {
         };
+  
   db.Recipes.find(query, function (err,  foundRecipe){
     if (err) return res.send(err);
 
