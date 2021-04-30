@@ -51,20 +51,20 @@ app.use("/comments", controllers.comments);
 
 // 1) HOME ROUTE FOR RECIPES
 app.get("/", function (req, res) {
-    const query = req.query.search  
-        ? {
-           $or: [
-             {name: { $regex: req.query.search, $options: "i" }},
-             {ingredients: { $regex: req.query.search, $options: "i" }}
-            ]
-          }
-        : {
-          };
-          console.log(query);
+  const query = req.query.search
+      ? {
+          $or: [{name: { $regex: req.query.search, $options: "i" }}, {ingredients: { $regex: req.query.search, $options: "i" }}],
+        }
+      : {
+        };  
+let header = "Trending Recipes";
+if (req.query.search) {
+  header = "Search Results";
+}
   db.Recipes.find(query, function(err, foundRecipes){
     if (err) return res.send(err);
 
-    const context = {allRecipes: foundRecipes, header: "Trending Recipes"};  //create variable like line 54-62 to pass in
+    const context = {allRecipes: foundRecipes, header};
     res.render("home", context);
   });
 });
