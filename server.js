@@ -64,7 +64,7 @@ app.get("/", function (req, res) {
     if (req.query.search){
       header = "Search Results";
     }
-  db.Recipes.find(query, header, function(err, foundRecipes){
+  db.Recipes.find(query, function(err, foundRecipes){
     if (err) return res.send(err);
 
     const context = {allRecipes: foundRecipes, header};
