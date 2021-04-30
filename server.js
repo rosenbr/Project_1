@@ -6,119 +6,72 @@ const app = express();
 const PORT = 4000;
 const methodOverride = require("method-override");
 app.set("view engine", "ejs");
+require("dotenv").config();
 // const { response } = require("express");
 const router = express.Router();
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+const bcrypt = require("bcryptjs");
 
 
 // * ===== Middleware ===== * //
 app.use(express.urlencoded({ extended: true }));
-// json express.json()
 app.use(methodOverride("_method"));
+app.use(session({
+  store: MongoStore.create({mongoUrl: process.env.MONGODB_URI}),
+  secret: "super secret cookie key",
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7
+  }
+}));
+app.use(function(req, res, next){
+  console.log(`${req.method} - ${req.url}`);
+  next();
+});
+app.use(function(req,res,next){
+  app.locals.user = req.session.currentUser;
+  next();
+});
+const authRequired = function(req, res, next){
+  if (req.session.currentUser){
+    return next();
+  }
+  return res.redirect("/login");
+};
 
+// * ===== Serve Images and Public Folders ==== * ///
 app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/images"));
 
 // * === Controllers === * //
+app.use("/", controllers.usersAuth);
 app.use("/recipes", controllers.recipes);
 app.use("/comments", controllers.comments);
 
-// * =====  Routes ===== * //
-// app.use("/home", express.static("/public"));
-
-// look for ?_method=TYPE change the TYPE to what you need
-
-/* =====  Controllers ===== */
-// 
-// CHANGE///////////////////////////////////
-// app.use("/fruits", controllers.fruits);
-// app.use("/recipes", controllers.recipes);
-// app.use("/comments", controllers.comments);
-// app.use("/users", controllers.users);
-/* =====  Routes ===== */
-
-/* 
-  Requests Methods
-    GET - get data
-    POST - create data -> body data
-    PUT - update data -> body data and target
-    PATCH - update data of a specific value -> body data and target
-    DELETE - delete/destroy -> target
-*/
-
-
-// CRUD 
-// 1) presentational
-// 2) show
- // * === RECIPE ROUTES === * //
-
 // 1) HOME ROUTE FOR RECIPES
-app.get("/", function (request, response) {
-  const context = {
-    allRecipes: db.Recipes,
-  };
-  response.render("home", context);
-});
+app.get("/", function (req, res) {
+    const query = req.query.search  
+        ? {
+           $or: [
+             {name: { $regex: req.query.search, $options: "i" }},
+             {ingredients: { $regex: req.query.search, $options: "i" }}
+            ]
+          }
+        : {
+          };
+  let header = "Trending Recipes"
+    if (req.query.search){
+      header = "Search Results";
+    }
+  db.Recipes.find(query, function(err, foundRecipes){
+    if (err) return res.send(err);
 
- /* // 1) HOME ROUTE FOR COMMENTS
-router.get("/indexComments", function (request, response) {
-  const context = {
-    allComments: db.Comments,
-  };
-  response.render("comments/indexComments", context)
-}); */
-
-
-
-/* // // 2) SHOW ROUTE COMMENTS
-app.get("/showComments/:index", function (request, response) {
-  const context = {
-    Comments: db.Comments[request.params.index],
-  };
-  response.render("comments/showComments", context);
-}); */
-
-// 3) CREATE ROUTE COMMENTS
-/* app.get("/createComments", function(request, response){
-  
-  response.render("comments/createComments");
-});
-// 4) CREATE ROUTE COMMENTS
-app.post("/createComments", function(request, respond){
-  let commentBody = request.body;
-  db.Comments.push(commentBody);
-  respond.redirect("/");
-}); */
-// 4) CREATE ROUTE COMMENTS
-// Moved to controller/comments.js
-
-// // 4) EDIT ROUTE COMMENTS
-/* app.get("/editComments", function(request, respond){
-  const commentIndex = request.params.index;
-  const editComment = db.Comments.find(function(singleComment){
-    if(singleComment.index == commentIndex){
-      return singleComment;
-    };
+    const context = {allRecipes: foundRecipes, header};
+    res.render("home", context);
   });
-  const context = {
-    Comments: editComment
-  };
-
-  respond.render("comments/editComments", context);
-  // respond.send("edit page");
-}); */
-
-// app.get("/showComments/:index", function(req, res){
-// //   db.Comments.find({}, function (err, allComments){
-// //       if (err) return res.send(err);
-
-// //       const context = {comments: allComments};
-// //       return res.render("/", context);
-// //   });
-// // });
-// const context = {
-//   Comments: db.Comments[request.params.index],
-// };
-// response.render("comments/showComments", context);
-// });
+});
 
 // * ===== Server Bind ==== *//
 app.listen(PORT, function () {

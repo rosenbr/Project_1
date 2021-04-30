@@ -1,5 +1,5 @@
 module.exports = {
     recipes: require("./recipes"),
-    users: require("./users"),
+    usersAuth: require("./usersAuth"),
     comments: require("./comments")
 };
