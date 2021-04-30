@@ -30,6 +30,16 @@ app.use(function(req, res, next){
   console.log(`${req.method} - ${req.url}`);
   next();
 });
+app.use(function(req,res,next){
+  app.locals.user = req.session.currentUser;
+  next();
+});
+const authRequired = function(req, res, next){
+  if (req.session.currentUser){
+    return next();
+  }
+  return res.redirect("/login");
+};
 
 // * ===== Serve Images and Public Folders ==== * ///
 app.use(express.static(__dirname + "/public"));
