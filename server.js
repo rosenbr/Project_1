@@ -40,15 +40,6 @@ app.use("/", controllers.usersAuth);
 app.use("/recipes", controllers.recipes);
 app.use("/comments", controllers.comments);
 
-/* 
-  Requests Methods
-    GET - get data
-    POST - create data -> body data
-    PUT - update data -> body data and target
-    PATCH - update data of a specific value -> body data and target
-    DELETE - delete/destroy -> target
-*/
-
 // 1) HOME ROUTE FOR RECIPES
 app.get("/", function (req, res) {
     const query = req.query.search  
