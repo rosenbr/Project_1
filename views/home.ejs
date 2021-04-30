@@ -21,21 +21,19 @@
                     <a class="signup__button" href="/register">Signup</a>
                     
                     <form action="" method="GET">
-                        <input type="text" name="name" placeholder="Recipe" />
+                        <input type="text" name="search" placeholder="Search" />
                         <input type="submit" value="Search" />
                     </form>
 
-                    <form action="" method="GET">
-                        <input type="text" name="ingredients" placeholder="Ingredients" />
-                        <input type="submit" value="Search" />
-                    </form>
                     <a href="/">Clear</a>
                 </div>
             </div>
 
     <div class="container">
+        <div class="row page_header">
+            <h1><%= header %></h1>
+        </div>
         <div class="row">
-            
             <div class="col-10 gallery">
                 <% allRecipes.forEach((Recipes, index) => { %>
                             <a class="recipe" href="/recipes/showRecipes/<%= Recipes.id %>"> 
