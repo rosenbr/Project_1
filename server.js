@@ -60,11 +60,14 @@ app.get("/", function (req, res) {
           }
         : {
           };
-          console.log(query);
-  db.Recipes.find(query, function(err, foundRecipes){
+  let header = "Trending Recipes"
+    if (req.query.search){
+      header = "Search Results";
+    }
+  db.Recipes.find(query, header, function(err, foundRecipes){
     if (err) return res.send(err);
 
-    const context = {allRecipes: foundRecipes, header: "Trending Recipes"};  //create variable like line 54-62 to pass in
+    const context = {allRecipes: foundRecipes, header: "Trending Recipes"};
     res.render("home", context);
   });
 });
