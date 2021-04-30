@@ -64,7 +64,7 @@ app.get("/", function (req, res) {
   db.Recipes.find(query, function(err, foundRecipes){
     if (err) return res.send(err);
 
-    const context = {allRecipes: foundRecipes};
+    const context = {allRecipes: foundRecipes, header: "Trending Recipes"};  //create variable like line 54-62 to pass in
     res.render("home", context);
   });
 });
