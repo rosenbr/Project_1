@@ -51,19 +51,17 @@ app.use("/comments", controllers.comments);
 
 // 1) HOME ROUTE FOR RECIPES
 app.get("/", function (req, res) {
-  const query = req.query.name
-      ? {
-          name: { $regex: req.query.name, $options: "i" },
-        }
-      : {
-        };
-  const queryTwo = req.query.ingredients    //Does not work :(
-      ? {
-        ingredients: { $regex: req.query.ingredients, $options: "i" },
-        }
-      : {
-        };
-  db.Recipes.find(query, queryTwo, function(err, foundRecipes){
+    const query = req.query.search  
+        ? {
+           $or: [
+             {name: { $regex: req.query.search, $options: "i" }},
+             {ingredients: { $regex: req.query.search, $options: "i" }}
+            ]
+          }
+        : {
+          };
+          console.log(query);
+  db.Recipes.find(query, function(err, foundRecipes){
     if (err) return res.send(err);
 
     const context = {allRecipes: foundRecipes};
