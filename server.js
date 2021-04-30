@@ -11,11 +11,11 @@ require("dotenv").config();
 const router = express.Router();
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const bcrypt = require("bcryptjs");
 
 
 // * ===== Middleware ===== * //
 app.use(express.urlencoded({ extended: true }));
-// json express.json()
 app.use(methodOverride("_method"));
 app.use(session({
   store: MongoStore.create({mongoUrl: process.env.MONGODB_URI}),
