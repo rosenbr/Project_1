@@ -25,11 +25,25 @@ router.get("/indexRecipes", function (req, res){
         }
       : {
         };
-  
   db.Recipes.find(query, function (err,  foundRecipe){
     if (err) return res.send(err);
 
     const context = { allRecipes: foundRecipe };
+    res.render("recipes/indexRecipes", context);
+  });
+});
+//Index route for searching by ingredient ** DOES NOT WORK **//
+router.get("/indexRecipes", function (req, res){
+  const query = req.query.ingredients
+      ? {
+        ingredients: { $regex: req.query.ingredients, $options: "i" },
+        }
+      : {
+        };
+  db.Recipes.find(query, function (err,  foundIngredient){
+    if (err) return res.send(err);
+
+    const context = { allRecipes: foundIngredient };
     res.render("recipes/indexRecipes", context);
   });
 });
