@@ -18,34 +18,20 @@ router.get("/showRecipes/:id", function (req, res) {
 });
 
 // Index Route
-router.get("/indexRecipes", function (req, res){
-  const query = req.query.name
-      ? {
-          name: { $regex: req.query.name, $options: "i" },
-        }
-      : {
-        };
-  db.Recipes.find(query, function (err,  foundRecipe){
-    if (err) return res.send(err);
+// router.get("/indexRecipes", function (req, res){
+//   const query = req.query.search
+//       ? {
+//           $or: [{name: { $regex: req.query.search, $options: "i" }}, {ingredients: { $regex: req.query.search, $options: "i" }}],
+//         }
+//       : {
+//         };
+//      console.log(query); 
+//   db.Recipes.find(query, function (err,  foundRecipe){
+//     if (err) return res.send(err);
 
-    const context = { allRecipes: foundRecipe };
-    res.render("recipes/indexRecipes", context);
-  });
-});
-//Index route for searching by ingredient ** DOES NOT WORK **//
-router.get("/indexRecipes", function (req, res){
-  const query = req.query.ingredients
-      ? {
-        ingredients: { $regex: req.query.ingredients, $options: "i" },
-        }
-      : {
-        };
-  db.Recipes.find(query, function (err,  foundIngredient){
-    if (err) return res.send(err);
-
-    const context = { allRecipes: foundIngredient };
-    res.render("recipes/indexRecipes", context);
-  });
-});
+//     const context = { allRecipes: foundRecipe };
+//     res.render("recipes/indexRecipes", context);
+//   });
+// });
 
 module.exports = router;
