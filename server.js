@@ -57,7 +57,13 @@ app.get("/", function (req, res) {
         }
       : {
         };
-  db.Recipes.find(query, function(err, foundRecipes){
+  const queryTwo = req.query.ingredients    //Does not work :(
+      ? {
+        ingredients: { $regex: req.query.ingredients, $options: "i" },
+        }
+      : {
+        };
+  db.Recipes.find(query, queryTwo, function(err, foundRecipes){
     if (err) return res.send(err);
 
     const context = {allRecipes: foundRecipes};
