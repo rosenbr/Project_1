@@ -67,7 +67,7 @@ app.get("/", function (req, res) {
   db.Recipes.find(query, header, function(err, foundRecipes){
     if (err) return res.send(err);
 
-    const context = {allRecipes: foundRecipes, header: "Trending Recipes"};
+    const context = {allRecipes: foundRecipes, header};
     res.render("home", context);
   });
 });
