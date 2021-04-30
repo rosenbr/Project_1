@@ -8,7 +8,7 @@ body {
 }
 
 h2 {
-    margin: 25px 0 0 50px;
+    margin: 25px 0 0 62px;
     color: rgb(225, 95, 38);
     font-family: 'Lobster Two', cursive;
     font-size: 40px;
@@ -32,24 +32,27 @@ transition: .3s ease-in;
 }
 
 .home__button {
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 70px;
+    margin: 10px 10px 10px 38px;
+    padding: 6px 8px 6px 45px;
+    width: 140px;
     color: rgb(250, 250, 250);
     font-size: 1.2em;
     background-color: rgb(58, 150, 145);
     border-radius: 20px;
 }
 .login__button {
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 70px;
+    margin: 10px 10px 10px 38px;
+    padding: 6px 8px 6px 45px;
+    width: 140px;
     color: rgb(250, 250, 250);
     font-size: 1.2em;
     background-color: rgb(58, 150, 145);
     border-radius: 20px;
 }
 .signup__button {
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 70px;
+    margin: 10px 10px 10px 38px;
+    padding: 6px 8px 6px 45px;
+    width: 140px;
     color: rgb(250, 250, 250);
     font-size: 1.2em;
     background-color: rgb(58, 150, 145);
@@ -58,9 +61,6 @@ transition: .3s ease-in;
 
 
 /* RECIPE GALLERY */
-/* .col-3 { "Trending Recipes"
-    margin-left: auto;
-} */
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -115,6 +115,7 @@ margin-left: 216px;
     overflow: hidden;
     border-radius: 10px;
     margin-left: auto;
+    box-shadow: 0 8px 6px -6px rgb(139, 138, 138);
 }
 
 .recipe__imagePage img {
@@ -126,12 +127,12 @@ margin-left: 216px;
     color: black;
     font-family: 'Roboto', sans-serif;;
     font-size: 3.7em;
-    margin: 80px 0 50px 170px;
+    margin: 115px 0 0 212px;
     text-decoration: bold;
 }
 
 .recipe__bottom {
-    padding: 10px 0px 60px 150px;
+    padding: 0px 0px 0px 100px;
 }
 .descriptions {
     color: black;
@@ -169,26 +170,22 @@ margin-left: 216px;
 }
 
 /* Comments On Recipe Page */
-.comment {
+.comment_body {
     color: rgb(76, 76, 76);
-    width: 50vw;
+    width: 70vw;
+    margin: 0 0 0 250px;
 }
-.edit {
-    color: rgb(76, 76, 76);
-    width: 50vw;
-}
-.delete{
-    color: rgb(76, 76, 76);
-    width: 50vw;
-}
+
 .comment__input {
-    margin: 30px 0px 0px 0px;
-    font-size: .6em;
-    line-height: 30px;
+    width: 250px;
+    margin: auto;
+    font-size: 1em;
+    justify-content: center;
     
 }
 
 .comment__button {
+    width: 300px;
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
     color: rgb(250, 250, 250);
@@ -196,12 +193,55 @@ margin-left: 216px;
     border-radius: 20px;
 
 }
+.change_comment {
+    margin: 0 0 0 100px;
+}
+.col.right {
+    display: flex;
+    justify-content: flex-start;
+}
+.col.left {
+    display: flex;
+    justify-content: flex-end;
+}
+.edit {
+    color: rgb(76, 76, 76);
+    margin: 3px 10px 10px 10px;
+    padding: 3px 10px 3px 10px;
+    color: rgb(250, 250, 250);
+    font-size: .6em;
+    border-radius: 20px;
+}
+.delete {
+    color: rgb(76, 76, 76);
+    padding: 3px 20px 3px 10px;
+    margin: 3px 10px 10px 10px;
+    font-size: .6em;
+    border-radius: 20px;
+}
+
 
 /* FORMS */
+
 form {
-    padding: 20px;
+    padding: 50px;
     display: flex;
     justify-content: center;
+}
+.search {
+    width: 120px;
+}
+.clear {
+    margin: 3px 10px 10px 75px;
+    padding: 3px 20px 3px 20px;
+    width: 65px;
+    color: rgb(250, 250, 250);
+    font-size: .6em;
+    background-color: rgb(58, 150, 145);
+    border-radius: 20px;
+}
+.login_signup {
+    padding: 100px 100px 0 250px;
 }
 
 input {
@@ -227,7 +267,6 @@ input::placeholder {
 
 input[type="text"] {
     border-radius: 15px, 0 0 15px;
-   
 }
 
 input[type="submit"] {
@@ -235,6 +274,7 @@ input[type="submit"] {
     background-color:  rgb(225, 95, 38);
     border-radius: 0 15px 15px 0; 
 }
+
 
 @media screen and (max-width: 600px) {
     .gallery .recipe {

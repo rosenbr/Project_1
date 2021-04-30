@@ -18,10 +18,16 @@
         <a class="home__button" href="/">Home</a>
         <a class="login__button" href="/login">Login</a>
         <a class="signup__button" href="/register">Signup</a>
-    </div>
-</div>
+        
+        <form action="" method="GET">
+            <input class="search" type="text" name="search" placeholder="Search" />
+            <input type="submit" value="Search" />
+        </form>
 
-    
+        <a class="home__button clear" href="/">Clear</a>
+    </div>
+
+<div class="login_signup">
     <form action="/register" method="POST">
         <p>
             <input type="text" name="name" placeholder="User Name" required minlength="3" required maxlength="16">
@@ -36,5 +42,6 @@
             <input type="submit" value="Register">
         </p>
     </form>
+</div>
 </body>
 </html>
