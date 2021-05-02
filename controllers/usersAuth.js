@@ -32,6 +32,7 @@ router.post("/register", async function(req, res){
     }
 });
 
+
 // LOG IN ROUTES get/post
 router.get("/login", function(req, res){
     res.render("usersAuth/login");
