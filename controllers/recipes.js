@@ -17,25 +17,5 @@ router.get("/showRecipes/:id", function (req, res) {
   });
 });
 
-// Index Route
-router.get("/indexRecipes", function (req, res){
-  const query = req.query.search  
-      ? {
-         $or: [
-           {name: { $regex: req.query.search, $options: "i" }},
-           {ingredients: { $regex: req.query.search, $options: "i" }}
-          ]
-        }
-      : {
-        };
-        console.log(query);
-  db.Recipes.find(query, function (err,  foundRecipe){
-    if (err) return res.send(err);
-
-    const context = { allRecipes: foundRecipe };
-    res.render("recipes/indexRecipes", context);
-  });
-});
-
 
 module.exports = router;
