@@ -18,7 +18,7 @@ router.get("/showRecipes/:id", function (req, res) {
 });
 
 // Index Route
-router.get("/indexRecipes", function (req, res){
+router.get("/indexRecipes/:id", function (req, res){
   const query = req.query.search  
       ? {
          $or: [
